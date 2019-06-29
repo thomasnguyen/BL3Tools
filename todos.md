@@ -9,7 +9,7 @@
 - [x] Dash 1 - Create hero background [15 minutes]
 - [x] Dash 2 - Finish hero [20 minutes]
 
-- [ ] TreeBuilder 1 - Add hero background [15 minutes]
+- [x] TreeBuilder 1 - Add hero background [15 minutes]
 - [ ] TreeBuilder 2 - Create TR card [20 minutes]
 - [ ] TreeBuilder 3 - Add likes, share, settings + right side [30 minutes]
 
