@@ -11,7 +11,7 @@
 
 - [x] TreeBuilder 1 - Add hero background [15 minutes]
 - [x] TreeBuilder 2 - Create TR card [20 minutes]
-- [ ] TreeBuilder 3 - Add likes, share, settings + right side [30 minutes]
+- [x] TreeBuilder 3 - Add likes, share, settings + right side [30 minutes]
 
 - [ ] TreeFactor 1 - Make plan to refactor code so that it is reusable [20 minutes]
 
