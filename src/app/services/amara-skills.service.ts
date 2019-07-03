@@ -1099,13 +1099,13 @@ export class AmaraSkillsService {
 
     this.mysticalAssault = this.mysticalAssault.map(skill => {
       skill['index'] = index++;
-      skill['image'] = `../../assets/amaraIcons/${index}.png`;
+      skill['image'] = `assets/amaraIcons/${index}.png`;
       return skill;
     });
 
     this.fistOfTheElements = this.fistOfTheElements.map(skill => {
       skill['index'] = index++;
-      skill['image'] = `../../assets/amaraIcons/${index}.png`;
+      skill['image'] = `assets/amaraIcons/${index}.png`;
       return skill;
     });
   }

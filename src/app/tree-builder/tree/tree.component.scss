@@ -61,7 +61,7 @@
   }
 
   &.augment {
-    background-image: url('/../../assets/augmentBG.png');
+    background-image: url('/assets/augmentBG.png');
     // filter: grayscale(100%);
 
     &:hover {
@@ -84,7 +84,7 @@
   }
 
   &.element {
-    background-image: url('/../../assets/elementBG.png');
+    background-image: url('/assets/elementBG.png');
 
     &:hover {
       cursor: pointer;
@@ -111,7 +111,7 @@
   }
 
   &.actionSkill {
-    background-image: url('/../../assets/actionSkillBG.png');
+    background-image: url('/assets/actionSkillBG.png');
     //filter: grayscale(100%);
 
 
@@ -139,7 +139,7 @@
   }
 
   &.skill {
-    background-image: url('/../../assets/skillBG.png');
+    background-image: url('/assets/skillBG.png');
     filter: grayscale(100%);
 
     &:hover {
