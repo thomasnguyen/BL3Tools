@@ -3,7 +3,7 @@
 
 ## Core Improvements :round_pushpin:
 #### 7/1
-- [ ] Add icon for amara build
+- [x] Add icon for amara build
 - [x] Add an upper limit to build
 - [ ] Style Modal 
 - [x] Have the progress bar working
