@@ -127,7 +127,6 @@ export class TreeComponent implements OnInit, OnChanges {
       const oldToken = params.get('build').split('');
       oldToken[index] = count + '';
       const tokenRoute = oldToken.join('');
-      console.log(this.character);
       this.router.navigate([`/tb/${this.character.name}/`, tokenRoute]);
     });
 
