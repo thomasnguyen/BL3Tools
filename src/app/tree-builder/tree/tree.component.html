@@ -1,0 +1,93 @@
+<div class="skill-tree">
+  <div [class]="'grid-tree__background ' + bgColor">
+    <span *ngIf="(treePoints < maxPoints) && (treePoints > 0)" [class]="'grid-tree__bar ' + bgColor"
+      [style.height.%]="(treePoints/maxPoints * 100)"></span>
+    <span *ngIf="(treePoints >= maxPoints) && (treePoints > 0)" [class]="'grid-tree__bar ' + bgColor"
+      [style.height.%]="100"></span>
+
+  </div>
+  <div class="grid-container">
+    <ng-container *ngFor="let skill of tree">
+      <ng-container *ngIf="skill === 'x'">
+        <div class="skill-icon blank"></div>
+      </ng-container>
+      <ng-container *ngIf="skill !== 'x'">
+        <!-- action-skill -->
+        <ng-container *ngIf="skill.type === 'action-skill'">
+          <div class="skill-icon actionSkill"
+            [ngClass]="{'equipped' : isActionSkillSelected, 'blue': bgColor === 'blue', 'green': bgColor === 'green', 'red': bgColor === 'red', 'unselectable' : treePoints < (skill.position[0] - 1) * 5}"
+            placement="right" triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate"
+            (click)="onSpecialSkillSelect(skill)" (contextmenu)="onActionSkillSelect(skill)">
+            <div><img class="skill-img" [src]="skill.image"></div>
+
+            <div *ngIf="skill.skillCount > 0" class="specialSkillEquipped">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+        </ng-container>
+        <!-- skill -->
+        <ng-container *ngIf="skill.type === 'skill'">
+          <div class="skill-icon skill"
+            [ngClass]="{'selected': skill.skillCount > 0,
+            'blue': bgColor === 'blue', 'green': bgColor === 'green', 'red': bgColor === 'red', 'unselectable' : treePoints < (skill.position[0] - 1) * 5 && skill.position[0] > 1}"
+            placement="right" triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate"
+            (click)="onIncreaseSkill(skill)" (contextmenu)="onDecreaseSkill(skill)">
+            <div><img class="skill-img" [src]="skill.image"></div>
+            <div *ngIf="treePoints >= (skill.position[0] - 1) * 5 || skill.position[0] <= 1" class="skill-icon_counter">
+              {{skill.skillCount}}/{{skill.skillLimit}}
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- augment -->
+        <ng-container *ngIf="skill.type === 'augment'">
+          <div class="skill-icon augment"
+            [ngClass]="{'selected': augmentsSelected.includes(skill.index), 'blue': bgColor === 'blue', 'green': bgColor === 'green', 'red': bgColor === 'red', 'unselectable' : treePoints < (skill.position[0] - 1) * 5}"
+            placement="right" triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate"
+            (click)="onSpecialSkillSelect(skill)" (contextmenu)="onAugmentSelect(skill)">
+            <div><img class="skill-img" [src]="skill.image"></div>
+            <div *ngIf="skill.skillCount > 0" class="specialSkillEquipped">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- element -->
+        <ng-container *ngIf="skill.type === 'element'">
+          <div class="skill-icon element"
+            [ngClass]="{'blue': bgColor === 'blue', 'green': bgColor === 'green', 'red': bgColor === 'red', 'unselectable' : treePoints < (skill.position[0] - 1) * 5}"
+            placement="right" triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate"
+            (click)="onSpecialSkillSelect(skill)" (contextmenu)="onDecreaseSkill(skill)">
+            <div><img class="skill-img" [src]="skill.image"></div>
+            <div *ngIf="skill.skillCount > 0" class="specialSkillEquipped">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+        </ng-container>
+
+
+      </ng-container>
+
+
+      <ng-template #popTemplate>
+        <div data-html="true" [innerHTML]="skill.description"></div>
+      </ng-template>
+
+    </ng-container>
+    <!-- <div class="skill-icon primary" placement="right" triggers="mouseenter:mouseleave" popoverTitle="One With Nature"
+      popover="Amara gains increased Max Health and Elemental Damage Resistance to her Action Skill Element."
+      (click)="addSkillPoint()" (contextmenu)="decreaseSkillPoint()">
+      <div class="skill-icon_counter">
+        0/5
+      </div>
+    </div> -->
+  </div>
+  <div class="tree-info">
+    <span class="tree-name" [ngClass]="bgColor">
+      {{treeName}}
+    </span>
+    <span class="tree-skill-count">
+      {{treePoints}}
+    </span>
+  </div>
+</div>

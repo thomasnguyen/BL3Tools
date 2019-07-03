@@ -1,0 +1,109 @@
+<div class="RL_hero hero-bg">
+  <div class="hero-container">
+    <div class="treeBuilder-card amara">
+      <img class="char-avy amara" src="/../../assets/amaraAvy.png">
+      <div class="meta">
+        <h2>{{character.fullName}} Build</h2>
+        <p class="progress-stat">
+          <span class="tree-points">{{totalSkillCount}}</span> of {{pointLimit}}
+        </p>
+        <div class="progress">
+          <div class="progress-bar amara" role="progressbar" [style.width.%]="(totalSkillCount / pointLimit) * 100"
+            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div>
+      <div class="special-skills">
+        <div class="special-skill-container">
+          <div *ngFor="let skill of equippedSkills" class="equipped-items">
+            <!-- action/element blank -->
+            <ng-container *ngIf="skill === 'blank-actionSkill' || skill === 'blank-elementSkill'">
+              <div class="skill-icon actionSkill specialSkill-icon blank-icon">
+              </div>
+            </ng-container>
+
+            <!-- augment blank -->
+            <ng-container *ngIf="skill === 'blank-augmentSkill'">
+              <div class="skill-icon augment  specialSkill-icon blank-icon">
+              </div>
+            </ng-container>
+
+            <!-- action/element skill -->
+            <ng-container *ngIf="skill.type === 'action-skill' || skill.type === 'element'">
+              <div class="skill-icon actionSkill selected-SpecialSkill specialSkill-icon" placement="right"
+                triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate">
+                <div><img class="skill-img" [src]="skill.image"></div>
+              </div>
+
+            </ng-container>
+
+
+            <!-- Augment -->
+            <ng-container *ngIf="skill.type === 'augment'">
+              <div class="skill-icon augment selected-SpecialSkill specialSkill-icon" placement="right"
+                triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate">
+                <div><img class="skill-img" [src]="skill.image"></div>
+              </div>
+            </ng-container>
+
+            <ng-template #popTemplate>
+              <div data-html="true" [innerHTML]="skill.description"></div>
+            </ng-template>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="options">
+      <a class="active"> <i class="fas fa-heart"></i> 69</a>
+      <a (click)="onPermalink(template)"> <i class="fas fa-share-alt"></i> Share</a>
+      <a (click)="onResetBuild()"> <i class="fas fa-redo-alt"></i> Reset</a>
+    </div>
+    <div class="right">
+      <div class="save">
+        <button class="btn ghost success">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="desktop tree-container">
+  <ng-container *ngFor="let build of builds">
+    <app-tree [treePoints]=build.treePoints [bgColor]=build.color [tree]=build.build [treeName]=build.name
+      [chunkLocation]=build.chunkLocation [character]=character [totalPoints]=totalSkillCount
+      [treeMaxPoints]=pointLimit></app-tree>
+  </ng-container>
+</div>
+
+<div class="mobile tree-container">
+  <div class="carousel-controller" (click)="decrementViewIndex()"><i class="fas fa-chevron-left"></i></div>
+
+
+  <ng-container *ngFor="let build of builds; let i = index">
+    <app-tree [bgColor]=build.color [tree]=build.build [treeName]=build.name [chunkLocation]=build.chunkLocation
+      [hidden]="treeViewIndex !== i">
+    </app-tree>
+  </ng-container>
+  <div class="carousel-controller" (click)="incrementViewIndex()"><i class="fas fa-chevron-right"></i></div>
+</div>
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title">Share Build</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <label for="exampleInputEmail1" (click)="copyToClickBoard(permalink)">Share Build via Link</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend3">Click to Copy</span>
+      </div>
+      <input type="text" class="form-control" value={{permalink}} aria-label="Recipient's username"
+        aria-describedby="basic-addon2" (click)="copyToClickBoard(permalink)">
+    </div>
+  </div>
+</ng-template>

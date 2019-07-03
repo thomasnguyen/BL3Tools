@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg">
+  <a class="brand" href="#">
+    <span class="main">BL3</span>
+    <span class="secondary">Tools</span>
+  </a>
+  <div class="menu">
+    <a class="menu-item" (click)="goTo('/')" [ngClass]="{'active': activeNav === 'dashboard'}">
+      Dashboard
+    </a>
+    <a class="menu-item" (click)="goTo('tb')" [ngClass]="{'active': activeNav === 'tb'}">
+      Tree Builder
+    </a>
+    <a class="menu-item" (click)="goTo('explore')" [ngClass]="{'active': activeNav === 'explore'}">
+      Explore
+    </a>
+    <a class="menu-item" (click)="goTo('about')" [ngClass]="{'active': activeNav === 'about'}">
+      About
+    </a>
+  </div>
+  <div class=" global">
+    <img _ngcontent-c1="" alt="" class="avatar small"
+      src="https://lh6.googleusercontent.com/-BMkDt12AJAE/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3remw60hHywgWBqlo9Mkn8D_i-3RNA/photo.jpg">
+    <div class="btn-group" dropdown placement="bottom left">
+      <button id="button-basic" class="btn ghost secondary dropdown-toggle" dropdownToggle type="button"
+        aria-controls="dropdown-basic" placement="bottom left">
+        Create Build<span class="caret"></span>
+      </button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
+        aria-labelledby="button-basic">
+        <li role="menuitem"><a class="dropdown-item" (click)="goToCharacter(2)">Amara</a></li>
+        <li role="menuitem"><a class="dropdown-item" (click)="goToCharacter(2)">Fl4k</a></li>
+        <li role="menuitem"><a class="dropdown-item" (click)="goToCharacter(2)">Moze</a></li>
+        <li role="menuitem"><a class="dropdown-item" (click)="goToCharacter(2)">Zane</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
