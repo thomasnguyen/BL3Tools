@@ -2,13 +2,18 @@
 
 
 ## Core Improvements :round_pushpin:
+
+#### 7/2 
+- [ ] Disable adding for icons if over limit
+- [ ] Add cog if special icon is used
+- [ ] Style Modal 
+- [ ] Start working for zane
+
+
 #### 7/1
 - [x] Add icon for amara build
 - [x] Add an upper limit to build
-- [ ] Style Modal 
 - [x] Have the progress bar working
-
-- [ ] Start working for zane
 
 #### 6/29
 - [x] Nav 1 - Button Dropdown in header for global create (visual) [10 minutes]
