@@ -75,17 +75,24 @@
       [treeMaxPoints]=pointLimit></app-tree>
   </ng-container>
 </div>
-
 <div class="mobile tree-container">
-  <div class="carousel-controller" (click)="decrementViewIndex()"><i class="fas fa-chevron-left"></i></div>
-
+  <div class="carousel-controller-container">
+    <div class="carousel-controller"
+      [ngClass]="{'red': treeViewIndex === 0,'green': treeViewIndex === 1,'blue': treeViewIndex === 2}"
+      (click)="decrementViewIndex()"><i class="fas fa-chevron-left"></i></div>
+  </div>
 
   <ng-container *ngFor="let build of builds; let i = index">
-    <app-tree [bgColor]=build.color [tree]=build.build [treeName]=build.name [chunkLocation]=build.chunkLocation
+    <app-tree [treePoints]=build.treePoints [bgColor]=build.color [tree]=build.build [treeName]=build.name
+      [chunkLocation]=build.chunkLocation [character]=character [totalPoints]=totalSkillCount [treeMaxPoints]=pointLimit
       [hidden]="treeViewIndex !== i">
     </app-tree>
   </ng-container>
-  <div class="carousel-controller" (click)="incrementViewIndex()"><i class="fas fa-chevron-right"></i></div>
+  <div class="carousel-controller-container">
+    <div class="carousel-controller"
+      [ngClass]="{'blue': treeViewIndex === 0,'red': treeViewIndex === 1,'green': treeViewIndex === 2}"
+      (click)="incrementViewIndex()"><i class="fas fa-chevron-right"></i></div>
+  </div>
 </div>
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CharacterService } from '../services/character.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class NavbarComponent implements OnInit {
   activeNav: string;
   constructor(
     private characterSvc: CharacterService,
-    private route: ActivatedRoute,
     private router: Router,
   ) { }
 

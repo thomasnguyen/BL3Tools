@@ -178,17 +178,39 @@ $darkBG: #1D202C;
 
 }
 
+.carousel-controller-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 424px;
+}
+
 
 .carousel-controller {
-  width: calc(50% - 150px);
-  height: 500px;
-  margin-top: -15px;
-  background: rgba(0, 0, 0, .2);
+  width: 40px;
+  height: 80px;
+
 
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+
+  &.green {
+    background: #2D7034;
+    color: #64E837;
+  }
+
+  &.red {
+    background: #71202C;
+    color: #C43E39;
+  }
+
+  &.blue {
+    background: #204072;
+    color: #209CFF;
+  }
 }
 
 .tree-container {
@@ -217,20 +239,6 @@ $darkBG: #1D202C;
 
 .mobile-tree-container {
   display: none;
-}
-
-
-@media only screen and (max-width: 960px) {
-  .tree-container {
-    &.desktop {
-      display: none;
-    }
-
-    &.mobile {
-      display: flex;
-    }
-  }
-
 }
 
 
@@ -413,4 +421,44 @@ $darkBG: #1D202C;
   &.red {
     color: #B73C31;
   }
+}
+
+
+
+/* .options,
+.right {
+  display: none;
+}
+ */
+
+
+
+
+@media only screen and (max-width: 960px) {
+  .tree-container {
+    &.desktop {
+      display: none;
+    }
+
+    &.mobile {
+      display: flex;
+    }
+  }
+
+  .options,
+  .right {
+    display: none;
+  }
+
+  .RL_hero>.hero-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .treeBuilder-card {
+    width: calc(100% - 40px);
+  }
+
+
+
 }

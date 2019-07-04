@@ -1306,8 +1306,8 @@ export class AmaraSkillsService {
 
   getTreeInfo(): any {
     return [
-      { name: 'Brawl', color: 'blue' },
-      { name: 'Mystical Assault', color: 'green' },
+      { name: 'Brawl', color: 'green' },
+      { name: 'Mystical Assault', color: 'blue' },
       { name: 'Fist of the Elements', color: 'red' },
     ];
   }

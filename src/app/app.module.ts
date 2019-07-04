@@ -22,6 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TreeBuilderComponent } from './tree-builder/tree-builder.component';
 import { TreeComponent } from './tree-builder/tree/tree.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TreeComponent } from './tree-builder/tree/tree.component';
     DashboardComponent,
     NavbarComponent,
     TreeBuilderComponent,
-    TreeComponent
+    TreeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
