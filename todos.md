@@ -4,9 +4,9 @@
 ## Core Improvements :round_pushpin:
 
 #### 7/5
-- Add Footer [30 minutes]
-- Do Mobile for tree [30 minutes]
-- Design Modal for sharing [30 minutes]
+- [x] Add Footer + mobile [30 minutes]
+- [ ] Do Mobile for tree [30 minutes]
+- [ ] Design Modal for sharing [30 minutes]
 
 
 - [ ] Disable adding for icons if over limit
