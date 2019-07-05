@@ -13,6 +13,7 @@ export interface Skill {
   skillLimit: number;
   status?: 'locked' | 'active' | 'full';
   position: number[];
+  color?: 'green' | 'blue' | 'red';
   getEffect(rank: number): string;
 
   getDescription(rank: number): string;

@@ -15,7 +15,7 @@
         <!-- action-skill -->
         <ng-container *ngIf="skill.type === 'action-skill'">
           <div class="skill-icon actionSkill"
-            [ngClass]="{'equipped' : isActionSkillSelected, 'blue': bgColor === 'blue', 'green': bgColor === 'green', 'red': bgColor === 'red', 'unselectable' : treePoints < (skill.position[0] - 1) * 5}"
+            [ngClass]="{'equipped' : skill.skillCount > 0, 'blue': bgColor === 'blue', 'green': bgColor === 'green', 'red': bgColor === 'red', 'unselectable' : treePoints < (skill.position[0] - 1) * 5}"
             placement="right" triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate"
             (click)="onSpecialSkillSelect(skill)" (contextmenu)="onActionSkillSelect(skill)">
             <div><img class="skill-img" [src]="skill.image"></div>

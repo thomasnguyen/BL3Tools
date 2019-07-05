@@ -6,10 +6,10 @@
 #### 7/5
 - [x] Add Footer + mobile [30 minutes]
 
-- [ ] Modify colors of tree-icons [30 minutes] [MULTI]
-- [ ] special skills have slightly lower opacity [5 minutes]
-- [ ] lower opacity for not yet selcted [5 minutes]
-- [ ] Correct color for special colors in 
+- [x] Modify colors of tree-icons [30 minutes] [MULTI]
+- [x] special skills have slightly lower opacity [5 minutes]
+- [x] lower opacity for not yet selcted [5 minutes]
+- [x] Correct color for special colors in [20 minutes]
 
 - [ ] Do Mobile for tree [30 minutes]
 - [ ] Design Modal for sharing [30 minutes]

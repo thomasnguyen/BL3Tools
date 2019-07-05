@@ -432,6 +432,18 @@ $darkBG: #1D202C;
  */
 
 
+.blue {
+  filter: hue-rotate(180deg) !important;
+}
+
+.green {
+  filter: hue-rotate(45deg) !important;
+}
+
+.red {
+  filter: hue-rotate(330deg) !important;
+}
+
 
 
 @media only screen and (max-width: 960px) {

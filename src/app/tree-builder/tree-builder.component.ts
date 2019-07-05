@@ -44,6 +44,7 @@ export class TreeBuilderComponent implements OnInit, OnDestroy {
       this.builds = getBuild.builds;
 
       this.equippedSkills = getBuild.equippedSkills.equipArray;
+      console.log(this.equippedSkills);
       this.totalSkillCount = 4;
       if (this.builds) {
         this.builds.forEach((build) => {

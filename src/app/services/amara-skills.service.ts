@@ -1094,18 +1094,21 @@ export class AmaraSkillsService {
     this.brawl = this.brawl.map(skill => {
       skill['index'] = index++;
       skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['color'] = 'green';
       return skill;
     });
 
     this.mysticalAssault = this.mysticalAssault.map(skill => {
       skill['index'] = index++;
       skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['color'] = 'blue';
       return skill;
     });
 
     this.fistOfTheElements = this.fistOfTheElements.map(skill => {
       skill['index'] = index++;
       skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['color'] = 'red';
       return skill;
     });
   }

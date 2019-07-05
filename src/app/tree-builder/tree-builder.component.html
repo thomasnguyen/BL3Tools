@@ -30,8 +30,8 @@
 
             <!-- action/element skill -->
             <ng-container *ngIf="skill.type === 'action-skill' || skill.type === 'element'">
-              <div class="skill-icon actionSkill selected-SpecialSkill specialSkill-icon" placement="right"
-                triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate">
+              <div class="skill-icon actionSkill selected-SpecialSkill specialSkill-icon" [ngClass]="skill.color"
+                placement="right" triggers="mouseenter:mouseleave" popoverTitle={{skill.name}} [popover]="popTemplate">
                 <div><img class="skill-img" [src]="skill.image"></div>
               </div>
 
