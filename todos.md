@@ -3,9 +3,13 @@
 
 ## Core Improvements :round_pushpin:
 
-#### 7/2 
+#### 7/5
+- Add Footer [30 minutes]
+- Do Mobile for tree [30 minutes]
+- Design Modal for sharing [30 minutes]
+
+
 - [ ] Disable adding for icons if over limit
-- [ ] Add cog if special icon is used
 - [ ] Style Modal 
 - [ ] Start working for zane
 
