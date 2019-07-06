@@ -140,9 +140,10 @@ a {
 }
 
 .modal-header {
-  background: $darkBG;
+  background: $lightBG;
   border: 0;
   border-radius: 0;
+  color: white;
 
   .close {
     color: white;
@@ -150,6 +151,11 @@ a {
 }
 
 .modal-body {
+  background: $lightBG;
+  color: gray;
+}
+
+.modal-content {
   background: $lightBG;
   color: gray;
 }

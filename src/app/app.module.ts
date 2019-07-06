@@ -23,6 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TreeBuilderComponent } from './tree-builder/tree-builder.component';
 import { TreeComponent } from './tree-builder/tree/tree.component';
 import { FooterComponent } from './footer/footer.component';
+import { CharSelectComponent } from './char-select/char-select.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     TreeBuilderComponent,
     TreeComponent,
-    FooterComponent
+    FooterComponent,
+    CharSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,8 @@ import { FooterComponent } from './footer/footer.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+entryComponents: [CharSelectComponent],
+
 })
 export class AppModule { }

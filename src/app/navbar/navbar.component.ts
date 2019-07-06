@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 import { CharacterService } from '../services/character.service';
+import { CharSelectComponent } from '../char-select/char-select.component';
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +15,10 @@ export class NavbarComponent implements OnInit {
 
   activeNav: string;
   isMobileMenuExpanded = false;
+  charScreenRef: BsModalRef;
 
   constructor(
+    private modalService: BsModalService,
     private characterSvc: CharacterService,
     private router: Router,
   ) { }
@@ -43,6 +49,15 @@ export class NavbarComponent implements OnInit {
     const blankSlate = this.characterSvc.getBlankSlate(charID);
 
     this.router.navigate([location, char, blankSlate]);
+  }
+
+  openCharSelect() {
+    const initialState = {
+      title: 'Choose your character',
+      class: 'gray modal-lg'
+    };
+    this.charScreenRef = this.modalService.show(CharSelectComponent, { initialState });
+
   }
 
 }
