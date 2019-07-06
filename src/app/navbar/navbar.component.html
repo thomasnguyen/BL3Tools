@@ -38,7 +38,9 @@
 
 <nav class="mobile navbar">
   <div class="leftSide">
-    <div class="hamburger-icon">H</div>
+    <div (click)="isMobileMenuExpanded = !isMobileMenuExpanded" class="hamburger-icon">
+      <img src='../../assets/hamburger.png'>
+    </div>
     <div class="logo">
       <a class="mobileBrand" href="#">
         <span class="main">BL</span>
@@ -50,5 +52,20 @@
     <button class="btn ghost secondary">
       Create New
     </button>
+  </div>
+</nav>
+
+<nav *ngIf="isMobileMenuExpanded" class="expanded-menu">
+  <div class="container">
+    <div class="mobile-nav">
+      <div (click)="goTo('/')" class="mobile-nav-item">Dashboard</div>
+      <div (click)="goTo('tb')" class="mobile-nav-item">Tree Builder</div>
+      <div (click)="goTo('explore')" class="mobile-nav-item">Explore</div>
+      <div (click)="goTo('about')" class="mobile-nav-item">About</div>
+      <div (click)="goTo('about')" class="mobile-nav-item"> <img _ngcontent-c1="" alt="" class="avatar small"
+          src="https://lh6.googleusercontent.com/-BMkDt12AJAE/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3remw60hHywgWBqlo9Mkn8D_i-3RNA/photo.jpg">Thomas
+        Nguyen</div>
+
+    </div>
   </div>
 </nav>

@@ -8,7 +8,10 @@ import { CharacterService } from '../services/character.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
   activeNav: string;
+  isMobileMenuExpanded = false;
+
   constructor(
     private characterSvc: CharacterService,
     private router: Router,
@@ -31,6 +34,7 @@ export class NavbarComponent implements OnInit {
       this.activeNav = location;
     }
     this.router.navigate([location]);
+    this.isMobileMenuExpanded = false;
   }
 
   goToCharacter(charID: number): void {
