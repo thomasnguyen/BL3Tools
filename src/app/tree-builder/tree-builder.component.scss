@@ -445,8 +445,28 @@ $darkBG: #1D202C;
 }
 
 
+.mobile-options {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+
+  >* {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+
 
 @media only screen and (max-width: 960px) {
+
+  .mobile-options {
+    display: flex;
+    justify-content: center;
+  }
+
   .tree-container {
     &.desktop {
       display: none;

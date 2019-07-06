@@ -96,6 +96,11 @@
 </div>
 
 
+<div class="mobile-options">
+  <button class="btn ghost secondary"> <i class="fas fa-heart"></i> 69</button>
+  <button class="btn ghost secondary" (click)="onPermalink(template)"> <i class="fas fa-share-alt"></i> Share</button>
+  <button class="btn ghost secondary" (click)="onResetBuild()"> <i class="fas fa-redo-alt"></i> Reset</button>
+</div>
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title">Share Build</h4>

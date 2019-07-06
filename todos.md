@@ -11,7 +11,7 @@
 - [x] lower opacity for not yet selcted [5 minutes]
 - [x] Correct color for special colors in [20 minutes]
 
-- [ ] Do Mobile for tree [30 minutes]
+- [x] Do Mobile for tree [30 minutes]
 - [ ] Design Modal for sharing [30 minutes]
 
 
