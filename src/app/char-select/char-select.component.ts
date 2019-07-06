@@ -12,7 +12,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class CharSelectComponent implements OnInit {
 
   constructor(
-    private bsModalRef: BsModalRef,
+    public bsModalRef: BsModalRef,
     private characterSvc: CharacterService,
     private router: Router,
   ) { }
