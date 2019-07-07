@@ -5,12 +5,12 @@
 
 
 #### 7/6
-- [ ] Under construction Component [30 minutes]
 
 - [ ] Offline functionality + pwa
 - [ ] Dashboard mobile
 - [ ] Start working for zane
 
+- [x] Under construction Component [30 minutes]
 - [x] Disable Zoom for mobile
 - [x] Disable popovers for mobile
 - [x] Design Modal for sharing [30 minutes]

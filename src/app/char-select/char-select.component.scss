@@ -73,4 +73,19 @@ $mozeBlue: #75A5B9;
 
 }
 
+.inactive {
+  opacity: .3;
+
+  &:hover {
+    border: 3px solid #1C212E !important;
+  }
+
+}
+
+.coming-soon {
+  color: white;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 @media only screen and (max-width: 500px) {}
