@@ -5,11 +5,14 @@
 
 
 #### 7/6
-- [ ] Design Modal for sharing [30 minutes]
-- [x] Disable like, explore, about
+- [ ] Under construction Component [30 minutes]
+- [ ] Disable popovers for mobile
 - [ ] Offline functionality + pwa
 - [ ] Dashboard mobile
-- [ ] Start working for zane 
+- [ ] Start working for zane
+
+- [x] Design Modal for sharing [30 minutes]
+- [x] Disable like, explore, about
 
 #### 7/5
 - [x] Add Footer + mobile [30 minutes]

@@ -191,7 +191,15 @@ input {
   opacity: .2 !important;
 }
 
+@media only screen and (max-width: 40px) {
+  .popover-content {
+    display: none;
+  }
 
+  .popover-title {
+    display: none;
+  }
+}
 
 .hero-bg {
   background-color: $heroBG;
