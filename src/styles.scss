@@ -161,15 +161,21 @@ a {
 }
 
 input {
-  background: $dark-bg !important;
+  background: $darkBG !important;
   border: 0px solid gray !important;
-  color: gray;
+  color: $pText;
+}
+
+.copy.input-group-text {
+  background: $darkerBG !important;
+  border: 0px solid gray !important;
+  color: $pText;
 }
 
 ////////////////////////////////////////
 .toast-success {
   background-color: #323232 !important;
-  color: #f1f1f1 !important;
+  color: $pText !important;
   box-shadow: 0 0 0px #999999 !important;
 }
 

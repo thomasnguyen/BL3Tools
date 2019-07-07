@@ -102,7 +102,7 @@ export class TreeBuilderComponent implements OnInit, OnDestroy {
     this.router.navigate(['tb/', this.character.name.toLowerCase(),
       this.charSvc.getBlankSlate(this.character.uid)]);
 
-    this.toastr.success('Build resetted');
+    this.toastr.success('Build reset.');
   }
 
   decrementViewIndex() {
