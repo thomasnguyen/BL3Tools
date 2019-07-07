@@ -24,6 +24,7 @@ import { TreeBuilderComponent } from './tree-builder/tree-builder.component';
 import { TreeComponent } from './tree-builder/tree/tree.component';
 import { FooterComponent } from './footer/footer.component';
 import { CharSelectComponent } from './char-select/char-select.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CharSelectComponent } from './char-select/char-select.component';
     TreeBuilderComponent,
     TreeComponent,
     FooterComponent,
-    CharSelectComponent
+    CharSelectComponent,
+    UnderConstructionComponent
   ],
   imports: [
     BrowserModule,
