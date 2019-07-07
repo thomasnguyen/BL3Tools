@@ -3,6 +3,14 @@
 
 ## Core Improvements :round_pushpin:
 
+
+#### 7/6
+- [ ] Design Modal for sharing [30 minutes]
+- [x] Disable like, explore, about
+- [ ] Offline functionality + pwa
+- [ ] Dashboard mobile
+- [ ] Start working for zane 
+
 #### 7/5
 - [x] Add Footer + mobile [30 minutes]
 
@@ -12,12 +20,7 @@
 - [x] Correct color for special colors in [20 minutes]
 
 - [x] Do Mobile for tree [30 minutes]
-- [ ] Design Modal for sharing [30 minutes]
-
-
-- [ ] Disable adding for icons if over limit
-- [ ] Style Modal 
-- [ ] Start working for zane
+- [x] Style Modal [30 minutes]
 
 
 #### 7/1

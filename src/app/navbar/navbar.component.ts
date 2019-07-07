@@ -47,11 +47,17 @@ export class NavbarComponent implements OnInit {
     const location = 'tb';
     const char = this.characterSvc.getCharacterByID(charID).name;
     const blankSlate = this.characterSvc.getBlankSlate(charID);
+    this.activeNav = 'tb';
 
+    console.log(this.activeNav);
+    this.isMobileMenuExpanded = false;
     this.router.navigate([location, char, blankSlate]);
   }
 
   openCharSelect() {
+    this.activeNav = 'tb';
+    this.isMobileMenuExpanded = false;
+
     const initialState = {
       title: 'Choose your character',
       class: 'gray modal-lg'

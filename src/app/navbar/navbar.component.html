@@ -1,27 +1,27 @@
 <nav class="desktop navbar navbar-expand-lg">
   <a class="brand" href="#">
     <span class="main">BL</span>
-    <span class="secondary">Tools</span>
+    <span class="secondary">Trees</span>
   </a>
   <div class="menu">
     <a class="menu-item" (click)="goTo('/')" [ngClass]="{'active': activeNav === 'dashboard'}">
       Dashboard
     </a>
-    <a class="menu-item" (click)="goTo('tb')" [ngClass]="{'active': activeNav === 'tb'}">
+    <a class="menu-item" (click)="openCharSelect()" [ngClass]="{'active': activeNav === 'tb'}">
       Tree Builder
     </a>
-    <a class="menu-item" (click)="goTo('explore')" [ngClass]="{'active': activeNav === 'explore'}">
+    <!--     <a class="menu-item" (click)="goTo('explore')" [ngClass]="{'active': activeNav === 'explore'}">
       Explore
-    </a>
-    <a class="menu-item" (click)="goTo('about')" [ngClass]="{'active': activeNav === 'about'}">
+    </a> -->
+    <!--     <a class="menu-item" (click)="goTo('about')" [ngClass]="{'active': activeNav === 'about'}">
       About
-    </a>
+    </a> -->
   </div>
   <div class=" global">
     <img _ngcontent-c1="" alt="" class="avatar small"
       src="https://lh6.googleusercontent.com/-BMkDt12AJAE/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3remw60hHywgWBqlo9Mkn8D_i-3RNA/photo.jpg">
     <button (click)="openCharSelect()" class="btn ghost secondary" type="button">
-      Create Build<span class="caret"></span>
+      <i class="fas fa-hammer"></i> Create Build
     </button>
 
   </div>
@@ -35,13 +35,13 @@
     <div class="logo">
       <a class="mobileBrand" href="#">
         <span class="main">BL</span>
-        <span class="secondary">Tools</span>
+        <span class="secondary">Trees</span>
       </a>
     </div>
   </div>
   <div class="rightSide">
     <button (click)="openCharSelect()" class="btn ghost secondary">
-      Create New
+      <i class="fas fa-hammer"></i> Create New
     </button>
   </div>
 </nav>
@@ -50,12 +50,12 @@
   <div class="container">
     <div class="mobile-nav">
       <div (click)="goTo('/')" class="mobile-nav-item">Dashboard</div>
-      <div (click)="goTo('tb')" class="mobile-nav-item">Tree Builder</div>
+      <div (click)="openCharSelect()" class="mobile-nav-item">Tree Builder</div>
       <div (click)="goTo('explore')" class="mobile-nav-item">Explore</div>
-      <div (click)="goTo('about')" class="mobile-nav-item">About</div>
+      <!--       <div (click)="goTo('about')" class="mobile-nav-item">About</div>
       <div (click)="goTo('about')" class="mobile-nav-item"> <img _ngcontent-c1="" alt="" class="avatar small"
           src="https://lh6.googleusercontent.com/-BMkDt12AJAE/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3remw60hHywgWBqlo9Mkn8D_i-3RNA/photo.jpg">Thomas
-        Nguyen</div>
+        Nguyen</div> -->
 
     </div>
   </div>`
