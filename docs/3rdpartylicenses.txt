@@ -307,9 +307,9 @@ ngx-bootstrap/component-loader
 
 ngx-bootstrap/positioning
 
-ngx-bootstrap/popover
-
 ngx-bootstrap/modal
+
+ngx-bootstrap/popover
 
 ngx-toastr
 MIT
