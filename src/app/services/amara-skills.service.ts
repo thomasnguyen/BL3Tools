@@ -311,7 +311,7 @@ export class AmaraSkillsService {
       Enemies near the grasped target are linked, and any damage dealt to a linked target is shared between all other linked targets.
       `,
       type: 'action-skill',
-      skillLimit: 0,
+      skillLimit: 1,
       position: [4, 4],
       skillCount: 0,
 
@@ -333,7 +333,7 @@ export class AmaraSkillsService {
       After Grasping the targeted enemy, large fists appear and constantly smash the area, dealing damage to nearby enemies.
       `,
       type: 'action-skill',
-      skillLimit: 0,
+      skillLimit: 1,
       position: [5, 0],
       skillCount: 0,
 
@@ -560,7 +560,7 @@ export class AmaraSkillsService {
       description: `Amara sends forward an Astral Projection of herself,
       dealing damage to everything in its path. Astral Projection deals increased damage for every enemy it hits.`,
       type: 'action-skill',
-      skillLimit: 0,
+      skillLimit: 1,
       position: [3, 0],
 
       getEffect: (rank) => `
@@ -621,7 +621,7 @@ export class AmaraSkillsService {
       it releases homing elemental projectiles that trigger her action skill elemental effect on enemies.
       `,
       type: 'action-skill',
-      skillLimit: 0,
+      skillLimit: 1,
       position: [4, 0],
 
       getEffect: (rank) => `
@@ -724,7 +724,7 @@ export class AmaraSkillsService {
       image: '',
       description: `Amara sends forward an Astral Projection of herself. When it hits a target, it explodes, damaging all nearby enemies.`,
       type: 'action-skill',
-      skillLimit: 0,
+      skillLimit: 1,
       position: [5, 4],
 
       getEffect: (rank) => `Cooldown: 28 seconds`,
@@ -962,7 +962,7 @@ export class AmaraSkillsService {
       image: '',
       description: `Amara leaps into the air and shoots an elemental beam below her briefly, followed by a slam.`,
       type: 'action-skill',
-      skillLimit: 0,
+      skillLimit: 1,
       position: [4, 0],
 
       getEffect: (rank) => `Action Skill Damage: -15%`,
