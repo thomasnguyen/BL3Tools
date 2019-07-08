@@ -279,7 +279,7 @@ $darkBG: #1D202C;
   //border: 1px solid black;
 
   &.unselectable {
-    opacity: .5;
+    opacity: .5 !important;
   }
 
   &.augment {
