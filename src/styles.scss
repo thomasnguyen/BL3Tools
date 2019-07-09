@@ -179,7 +179,8 @@ input {
 }
 
 ////////////////////////////////////////
-.toast-success {
+.toast-success,
+.toast-error {
   background-color: #323232 !important;
   color: $pText !important;
   box-shadow: 0 0 0px #999999 !important;

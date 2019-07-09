@@ -25,7 +25,7 @@ export class BuildService {
     return buildArray.join('');
   }
 
-  updateSpecialSkill(skill: Skill, charID): any {
+  updateSpecialSkill(skill: Skill, charID: number): any {
     // if amara's acton-skills
     if (charID === 2) {
       return {
@@ -34,7 +34,6 @@ export class BuildService {
       };
     }
   }
-
 
   getSkillSet(charID: number): any[] {
     if (charID === 2) {

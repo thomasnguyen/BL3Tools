@@ -4,12 +4,16 @@
 ## Core Improvements :round_pushpin:
 
 
-#### 7/6
+
+#### 7/8
+- [ ] When full then show a error message
+- [ ] Clicking on a action-skill or augment deselects it
 
 - [ ] Offline functionality + pwa
 - [ ] Dashboard mobile
 - [ ] Start working for zane
 
+#### 7/6
 - [x] Under construction Component [30 minutes]
 - [x] Disable Zoom for mobile
 - [x] Disable popovers for mobile

@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 
 import { BuildService } from '../../services/build.service';
 import { Character } from 'src/app/models/character.model';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-tree',
   templateUrl: './tree.component.html',
@@ -31,6 +32,7 @@ export class TreeComponent implements OnInit, OnChanges {
     private buildSvc: BuildService,
     private route: ActivatedRoute,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -55,16 +57,42 @@ export class TreeComponent implements OnInit, OnChanges {
   }
 
   onSpecialSkillSelect(skill: Skill) {
-    if (skill.skillLimit === skill.skillCount || this.treePoints < (skill.position[0] - 1) * 5) {
+    const { skillLocations, skillSelected } = this.buildSvc.updateSpecialSkill(skill, this.character.uid);
+
+
+    if (this.treePoints < (skill.position[0] - 1) * 5) {
+      return;
+    } else if (skill.skillLimit === skill.skillCount) {
+      skill.skillCount = 0;
+
+      this.unselectSpecial(skillLocations, skillSelected);
       return;
     }
 
     // const skillCount = this.isActionSkillSelected ? 1 : 0;
-    const { skillLocations, skillSelected } = this.buildSvc.updateSpecialSkill(skill, this.character.uid);
     this.setSpecialSkills(skillLocations, skillSelected);
 
     // this.updateRoute(skill.index, skillCount);
     return false;
+  }
+
+  unselectSpecial(skillLocations: [], skillSelected: []) {
+    this.route.paramMap.pipe(first()).subscribe(params => {
+      const oldToken = params.get('build').split('');
+
+      // reset token
+      skillLocations.forEach(location => {
+        oldToken[location] = '0';
+      });
+
+      // set token
+      skillSelected.forEach(location => {
+        oldToken[location] = '0';
+      });
+
+      const tokenRoute = oldToken.join('');
+      this.router.navigate([`/tb/${this.character.name}/`, tokenRoute]);
+    });
   }
 
   setSpecialSkills(skillLocations: [], skillSelected: []) {
@@ -88,9 +116,10 @@ export class TreeComponent implements OnInit, OnChanges {
 
   onIncreaseSkill(skill: Skill) {
     // do check to make sure it does not go over limit
-    if (this.totalPoints >= this.treeMaxPoints ||
-      skill.skillLimit === skill.skillCount || this.treePoints < (skill.position[0] - 1) * 5) {
+    if (skill.skillLimit === skill.skillCount || this.treePoints < (skill.position[0] - 1) * 5) {
       return;
+    } else if (this.totalPoints >= this.treeMaxPoints) {
+      this.toastr.error('ERR: Skill limit reached');
     } else {
       // global skill point for tree
       // this.treePoints += 1;

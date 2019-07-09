@@ -1,4 +1,4 @@
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Skill } from '../models/skill.model';
 
@@ -1258,11 +1258,13 @@ export class AmaraSkillsService {
     const specialLocations = this.getSpecials(type).map(skill => {
       return skill.index;
     });
+
     return specialLocations;
   }
 
   getSpecials(type: string): any {
     // this.prepBuilds();
+
     const specialArray = [];
     this.brawl.forEach(skill => {
       if (skill.type === type) {
@@ -1279,6 +1281,7 @@ export class AmaraSkillsService {
         specialArray.push(skill);
       }
     });
+
     return specialArray;
   }
 
