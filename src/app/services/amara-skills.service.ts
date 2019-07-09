@@ -700,7 +700,7 @@ export class AmaraSkillsService {
       getEffect: (rank) => ``,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.descriptio;
       }
     },
     {
@@ -712,10 +712,20 @@ export class AmaraSkillsService {
       skillLimit: 3,
       position: [5, 3],
 
-      getEffect: (rank) => `Rush Stack Effectiveness: +10% per rank`,
+      getEffect: (rank) => `<b>Rush Stack Effectiveness:</b> +${rank * 10}%`,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -727,10 +737,10 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [5, 4],
 
-      getEffect: (rank) => `Cooldown: 28 seconds`,
+      getEffect: (rank) => `<b>Cooldown:</b> 28 seconds`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -743,10 +753,10 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [6, 2],
 
-      getEffect: (rank) => `Bonus Rush Stacks: +10`,
+      getEffect: (rank) => `<b>Bonus Rush Stacks:<br> +10`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
   ];
