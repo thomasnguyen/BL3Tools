@@ -6,8 +6,10 @@
 
 
 #### 7/8
-- [ ] When full then show a error message
-- [ ] Clicking on a action-skill or augment deselects it
+- [x] When full then show a error message
+- [x] Clicking on a action-skill or augment deselects it
+- [ ] Deselect skill bug
+- [ ] Get Real Descriptions
 
 - [ ] Offline functionality + pwa
 - [ ] Dashboard mobile

@@ -761,17 +761,13 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [0, 2],
 
-      getEffect: (rank) => `
-        < strong > Max Health: <strong>+${ rank * 5} % per rank < /br>
-        < strong > Elemental Damage Reduction: </strong> +${rank * 12} % per rank
-          `,
+      getEffect: (rank) => '',
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description;
       }
     },
 
     {
-      // index: 0,
       name: 'One With Nature',
       image: '',
       description: 'Amara gains increased max health and elemental damage resistance to her action skill element.',
@@ -780,15 +776,24 @@ export class AmaraSkillsService {
       position: [1, 1],
 
       getEffect: (rank) => `
-        < strong > Max Health: <strong>+${ rank * 5} % per rank < /br>
-        < strong > Elemental Damage Reduction: </strong> +${rank * 12} % per rank
+        <b> Max Health: </b>+${ rank * 5} % per rank <br>
+        <b> Elemental Damage Reduction: </b> +${rank * 12} % per rank
           `,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
-      // index: 1,
       name: 'Personal Space',
       image: '',
       description: `Amara's weapon shots deal bonus damage based on the distance to her target.
@@ -797,14 +802,23 @@ export class AmaraSkillsService {
       skillLimit: 3,
       position: [1, 2],
 
-      getEffect: (rank) => `< strong > Bonus Damage: </strong> up to ${rank * 11}% of damage dealt per rank`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `<b> Bonus Damage: </b> up to ${rank * 11}% of damage dealt per rank`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
 
     {
-      // index: 2,
       name: 'Clarity',
       image: '',
       description: `Amara constantly regenerates health. The lower her health, the more powerful the regeneration.
@@ -813,14 +827,24 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [1, 3],
 
-      getEffect: (rank) => `<strong>Health Regeneration:</strong> up to ${rank}% missing health/sec per rank
-      <strong>Duration:</strong> 5 seconds`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `
+      <b>Health Regeneration:</b> up to ${rank}% missing health/sec per rank <br>
+      <b>Duration:</b> 5 seconds`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
-      // index: 3,
       name: 'Arms Deal',
       image: '',
       description: `Amara deals increased splash damage and takes reduced splash damage.`,
@@ -828,10 +852,21 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [2, 1],
 
-      getEffect: (rank) => `<strong>Splash Damage:</strong> +${rank * 3}% per rank
-      <strong>Splash Damage Reduction:</strong> +${rank * 3}% per rank`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `
+      <b>Splash Damage:</b> +${rank * 3}% per rank
+      <b>Splash Damage Reduction:</b> +${rank * 3}% per rank`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -843,9 +878,19 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [2, 2],
 
-      getEffect: (rank) => `<strong>Max Health:</strong> +${rank}% per rank`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `<b>Max Health:</b> +${rank}% per rank`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -857,10 +902,21 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [2, 3],
 
-      getEffect: (rank) => `<strong>Damage Reduction:</strong> +${rank * 4}% per rank
-      <strong>Duration:</strong> 8 seconds`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `
+      <b>Damage Reduction:</b> +${rank * 4}% per rank <br>
+      <b>Duration:</b> 8 seconds`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -888,7 +944,7 @@ export class AmaraSkillsService {
 
       getEffect: (rank) => `<strong>Cooldown:</strong> 26 seconds`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -900,12 +956,23 @@ export class AmaraSkillsService {
       skillLimit: 3,
       position: [3, 1],
 
-      getEffect: (rank) => `<strong>Movement Speed:</strong> +${rank * 1.4}% per stack and rank
-      <strong>Shield Regeneration Delay:</strong> -${rank * 2.5}% per stack and rank
-      <strong>Max Mindfulness Stacks:</strong> 25
-      <strong>Duration:</strong> 5 seconds`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `
+      <b>Movement Speed:</b> +${rank * 1.4}% per stack and rank <br>
+      <b>Shield Regeneration Delay:</b> -${rank * 2.5}% per stack and rank <br>
+      <b>Max Mindfulness Stacks:</b> 25 <br>
+      <b>Duration:</b> 5 seconds`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -918,12 +985,13 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [3, 2],
 
-      getEffect: (rank) => `<strong>Movement Speed:</strong> +${rank * 1.4}% per stack and rank
-      <strong>Shield Regeneration Delay:</strong> -${rank * 2.5}% per stack and rank
-      <strong>Max Mindfulness Stacks:</strong> 25
-      <strong>Duration:</strong> 5 seconds`,
+      getEffect: (rank) => `
+      <b>Movement Speed:</b> +${rank * 1.4}% per stack and rank <br>
+      <b>Shield Regeneration Delay:</b> -${rank * 2.5}% per stack and rank <br>
+      <b>Max Mindfulness Stacks:</b> 25 <br>
+      <b>Duration:</b> 5 seconds`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -936,10 +1004,21 @@ export class AmaraSkillsService {
       skillLimit: 3,
       position: [3, 3],
 
-      getEffect: (rank) => `<strong>Team Movement Speed:</strong> +${rank * 2}% per rank
+      getEffect: (rank) => `
+      <strong>Team Movement Speed:</strong> +${rank * 2}% per rank <br>
       <strong>Duration:</strong> 8 seconds`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -951,9 +1030,9 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [3, 4],
 
-      getEffect: (rank) => `Action Skill Damage: -15%`,
+      getEffect: (rank) => `<b>Action Skill Damage</b>: -15%`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -965,9 +1044,9 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [4, 0],
 
-      getEffect: (rank) => `Action Skill Damage: -15%`,
+      getEffect: (rank) => `<b>Action Skill Damage:</b> -15%`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -980,12 +1059,23 @@ export class AmaraSkillsService {
       skillLimit: 3,
       position: [4, 2],
 
-      getEffect: (rank) => `<strong>Gun Damage:</strong> +${rank * 2}% per rank and enemy damaged
-      <strong>Health Regeneration:</strong> +1% of max health/sec per stack and rank
-      <strong>Max Samsara Stacks:</strong> 25
-      <strong>Duration:</strong> 8 seconds`,
-      getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+      getEffect: (rank) => `
+      <b>Gun Damage:</b> +${rank * 2}% per rank and enemy damaged <br>
+      <b>Health Regeneration:</b> +1% of max health/sec per stack and rank <br>
+      <b>Max Samsara Stacks:</b> 25 <br>
+      <b>Duration:</b> 8 seconds`,
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        return desc;
       }
     },
     {
@@ -998,9 +1088,9 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [5, 1],
 
-      getEffect: (rank) => `<strong>Cooldown:</strong> 8 seconds`,
+      getEffect: (rank) => `<b>Cooldown:</b> 8 seconds`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -1013,11 +1103,12 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [5, 2],
 
-      getEffect: (rank) => `Weapon Damage: +10% per rank
-      Action Skill Damage: +11% per rank
-      Duration: 20 seconds`,
+      getEffect: (rank) => `
+      <b>Weapon Damage:</b> +10% per rank <br>
+      <b>Action Skill Damage:</b> +11% per rank <br>
+      <b>Duration:</b> 20 seconds`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -1032,10 +1123,12 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [5, 3],
 
-      getEffect: (rank) => `Max Health Restored: 100% of max health
-      Cooldown: 60 seconds`,
+      getEffect: (rank) => `
+      <b>Max Health Restored:</b> 100% of max health <br>
+      <b>Cooldown:</b> 60 seconds
+      `,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -1049,11 +1142,12 @@ export class AmaraSkillsService {
       skillLimit: 1,
       position: [5, 4],
 
-      getEffect: (rank) => `Damage: -60%
-      Confuse Duration: 6 seconds
-      Cooldown: +20%`,
+      getEffect: (rank) => `
+      <b>Damage:</b> -60% <br>
+      <b>Confuse Duration:</b> 6 seconds <br>
+      <b>Cooldown:</b> +20%`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -1068,15 +1162,18 @@ export class AmaraSkillsService {
       skillCount: 0,
       position: [6, 2],
 
-      getEffect: (rank) => `Cooldown: 10 seconds`,
+      getEffect: (rank) => `
+      <b>Cooldown:</b> 10 seconds`,
       getDescription: function (rank) {
-        return this.description + '</br>' + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
   ];
 
   constructor(
   ) { }
+
+
 
 
   public getSkillSet(): any[] {
