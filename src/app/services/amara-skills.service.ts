@@ -46,9 +46,9 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Elemental Effect Damage:</b> +${rank * 2}% per rank <br>
-      <b>Elemental Effect Duration:</b> +${rank * 10}% per rank <br>
-      <b>Action Skill Elemental Effect Damage:</b> +${rank * 6}% per rank <br>
+      <b>Elemental Effect Damage:</b> +${rank * 2}%  <br>
+      <b>Elemental Effect Duration:</b> +${rank * 10}%  <br>
+      <b>Action Skill Elemental Effect Damage:</b> +${rank * 6}%  <br>
       `,
 
       getDescription: function () {
@@ -76,8 +76,8 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Handling:</b> +${rank * 12}% per rank <br>
-      <b>Accuracy:</b> +${rank * 10}% per rank
+      <b>Handling:</b> +${rank * 12}%  <br>
+      <b>Accuracy:</b> +${rank * 10}%
       `,
 
       getDescription: function () {
@@ -105,7 +105,7 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Converted Damage:</b> +${rank * 4}% per rank
+      <b>Converted Damage:</b> +${rank * 4}%
       `,
 
       getDescription: function () {
@@ -133,8 +133,8 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Shock Damage:</b> +${rank * 8}% per rank
-      <b>Elemental Damage:</b> +${rank * 4}% per rank
+      <b>Shock Damage:</b> +${rank * 8}%
+      <b>Elemental Damage:</b> +${rank * 4}%
       `,
 
       getDescription: function () {
@@ -182,7 +182,7 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Spread Chance</b>: ${rank * 8}% per rank
+      <b>Spread Chance</b>: ${rank * 8}%
       `,
 
       getDescription: function () {
@@ -288,9 +288,9 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Ricochet Chance:</b> 10% per rank <br>
+      <b>Ricochet Chance:</b> 10%  <br>
       <b>Ricochet Damage:</b> -50% <br>
-      <b>Action Skill Ricochet Chance: </b> 20% per rank <br>
+      <b>Action Skill Ricochet Chance: </b> 20%  <br>
       <b>Action Skill Ricochet Damage:</b> -25%
       `,
 
@@ -321,9 +321,9 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Ricochet Chance:</b> ${rank * 10}% per rank <br>
+      <b>Ricochet Chance:</b> ${rank * 10}%  <br>
       <b>Ricochet Damage:</b> -${rank * 50}% <br>
-      <b>Action Skill Ricochet Chance:</b> ${rank * 20}% per rank <br>
+      <b>Action Skill Ricochet Chance:</b> ${rank * 20}%  <br>
       <b>Action Skill Ricochet Damage:</b> -${rank * 25}%
       `,
 
@@ -418,7 +418,7 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Life Steal:</b> ${rank * 4}% per rank
+      <b>Life Steal:</b> ${rank * 4}%
       `,
 
       getDescription: function () {
@@ -449,7 +449,7 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Extra Effect Chance:</b> ${rank * 7}% per rank
+      <b>Extra Effect Chance:</b> ${rank * 7}%
       `,
 
       getDescription: function () {
@@ -499,8 +499,8 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <strong>Max Health:</strong> +${rank * 5}% per rank <br>
-      <strong>Elemental Damage Reduction:</strong> +${rank * 12} % per rank
+      <strong>Max Health:</strong> +${rank * 5}%  <br>
+      <strong>Elemental Damage Reduction:</strong> +${rank * 12} %
       `,
 
       getDescription: function (rank) {
@@ -518,8 +518,8 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Max Health:</b> +${rank * 5}% per rank <br>
-      <b>Elemental Damage Reduction:</b> +${rank * 12} % per rank
+      <b>Max Health:</b> +${rank * 5}%  <br>
+      <b>Elemental Damage Reduction:</b> +${rank * 12} %
       `,
 
       getDescription: function () {
@@ -546,9 +546,9 @@ export class AmaraSkillsService {
       position: [1, 2],
 
       getEffect: (rank) => `
-      <b>Reload Speed:</b> +${rank * 4}% per rank <br>
-      <b>Weapon Swap Speed:</b> +${rank * 22}% per rank <br>
-      <b>Mode Switch Speed:</b> +${rank * 21}% per rank
+      <b>Reload Speed:</b> +${rank * 4}%  <br>
+      <b>Weapon Swap Speed:</b> +${rank * 22}%  <br>
+      <b>Mode Switch Speed:</b> +${rank * 21}%
       `,
 
       getDescription: function () {
@@ -575,7 +575,7 @@ export class AmaraSkillsService {
       position: [1, 3],
 
       getEffect: (rank) => `
-      <b>Effect Chance:</b> +${rank * 0.6}% per rank and stack consumed <br>
+      <b>Effect Chance:</b> +${rank * 0.6}% per stack consumed <br>
       <b>Max Rush Stacks:</b> 10 <br>
       <b>Duration:</b> 5 seconds
       `,
@@ -605,8 +605,8 @@ export class AmaraSkillsService {
       position: [2, 1],
 
       getEffect: (rank) => `
-      <b>Reload Speed:</b> +${rank * 0.4}% per rank and stack
-      <b>Reload Speed:</b> +${rank * 0.6}% per rank and stack after action skill use
+      <b>Reload Speed:</b> +${rank * 0.4}% per stack
+      <b>Reload Speed:</b> +${rank * 0.6}% per stack after action skill use
       <b>Duration:</b> 8 seconds
       `,
 
@@ -635,8 +635,8 @@ export class AmaraSkillsService {
       position: [2, 2],
 
       getEffect: (rank) => `
-      <b>Accuracy:</b> +${rank * 11}% per rank <br>
-      <b>Critical Hit Bonus:</b> +${rank * 9}% per rank <br>
+      <b>Accuracy:</b> +${rank * 11}%  <br>
+      <b>Critical Hit Bonus:</b> +${rank * 9}%  <br>
       <b>Duration:</b> 8 seconds
       `,
 
@@ -663,7 +663,7 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [2, 3],
 
-      getEffect: (rank) => `<b>Cooldown Rate:</b> +${rank * 4}% per rank`,
+      getEffect: (rank) => `<b>Cooldown Rate:</b> +${rank * 4}% `,
 
       getDescription: function () {
         let desc = this.description;
@@ -783,8 +783,8 @@ export class AmaraSkillsService {
       position: [4, 1],
 
       getEffect: (rank) => `
-      <b>Fire Rate:</b> +${rank * 4}% per rank <br>
-      <b>Charge Time:</b> +${rank * 26}% per rank`,
+      <b>Fire Rate:</b> +${rank * 4}%  <br>
+      <b>Charge Time:</b> +${rank * 26}% `,
 
 
       getDescription: function () {
@@ -812,7 +812,7 @@ export class AmaraSkillsService {
       position: [4, 2],
 
       getEffect: (rank) => `
-      <b>Damage Increase:</b> +${rank * 5}% per rank <br>
+      <b>Damage Increase:</b> +${rank * 5}%  <br>
       <b>Duration:</b> 8 seconds`,
 
 
@@ -841,8 +841,8 @@ export class AmaraSkillsService {
       position: [4, 3],
 
       getEffect: (rank) => `
-      <b>Gun Damage:</b> +${rank * 3}% per rank <br>
-      <b>Gun Damage:</b> +${rank * 5}% per rank after action skill use <br>
+      <b>Gun Damage:</b> +${rank * 3}%  <br>
+      <b>Gun Damage:</b> +${rank * 5}%  after action skill use <br>
       <b>Duration:</b> 8 seconds`,
 
 
@@ -960,8 +960,8 @@ export class AmaraSkillsService {
       position: [1, 1],
 
       getEffect: (rank) => `
-        <b> Max Health: </b>+${ rank * 5} % per rank <br>
-        <b> Elemental Damage Reduction: </b> +${rank * 12} % per rank
+        <b> Max Health: </b>+${ rank * 5} %  <br>
+        <b> Elemental Damage Reduction: </b> +${rank * 12} %
           `,
       getDescription: function () {
         let desc = this.description;
@@ -986,7 +986,7 @@ export class AmaraSkillsService {
       skillLimit: 3,
       position: [1, 2],
 
-      getEffect: (rank) => `<b> Bonus Damage: </b> up to ${rank * 11}% of damage dealt per rank`,
+      getEffect: (rank) => `<b> Bonus Damage: </b> up to ${rank * 11}% of damage dealt `,
       getDescription: function () {
         let desc = this.description;
 
@@ -1012,7 +1012,7 @@ export class AmaraSkillsService {
       position: [1, 3],
 
       getEffect: (rank) => `
-      <b>Health Regeneration:</b> up to ${rank}% missing health/sec per rank <br>
+      <b>Health Regeneration:</b> up to ${rank}% missing health/sec  <br>
       <b>Duration:</b> 5 seconds`,
       getDescription: function () {
         let desc = this.description;
@@ -1037,8 +1037,8 @@ export class AmaraSkillsService {
       position: [2, 1],
 
       getEffect: (rank) => `
-      <b>Splash Damage:</b> +${rank * 3}% per rank
-      <b>Splash Damage Reduction:</b> +${rank * 3}% per rank`,
+      <b>Splash Damage:</b> +${rank * 3}%
+      <b>Splash Damage Reduction:</b> +${rank * 3}% `,
       getDescription: function () {
         let desc = this.description;
 
@@ -1062,7 +1062,7 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [2, 2],
 
-      getEffect: (rank) => `<b>Max Health:</b> +${rank}% per rank`,
+      getEffect: (rank) => `<b>Max Health:</b> +${rank}% `,
       getDescription: function () {
         let desc = this.description;
 
@@ -1087,7 +1087,7 @@ export class AmaraSkillsService {
       position: [2, 3],
 
       getEffect: (rank) => `
-      <b>Damage Reduction:</b> +${rank * 4}% per rank <br>
+      <b>Damage Reduction:</b> +${rank * 4}%  <br>
       <b>Duration:</b> 8 seconds`,
       getDescription: function () {
         let desc = this.description;
@@ -1189,7 +1189,7 @@ export class AmaraSkillsService {
       position: [3, 3],
 
       getEffect: (rank) => `
-      <strong>Team Movement Speed:</strong> +${rank * 2}% per rank <br>
+      <strong>Team Movement Speed:</strong> +${rank * 2}%  <br>
       <strong>Duration:</strong> 8 seconds`,
       getDescription: function () {
         let desc = this.description;
@@ -1244,7 +1244,7 @@ export class AmaraSkillsService {
       position: [4, 2],
 
       getEffect: (rank) => `
-      <b>Gun Damage:</b> +${rank * 2}% per rank and enemy damaged <br>
+      <b>Gun Damage:</b> +${rank * 2}% per enemy damaged <br>
       <b>Health Regeneration:</b> +1% of max health/sec per stack and rank <br>
       <b>Max Samsara Stacks:</b> 25 <br>
       <b>Duration:</b> 8 seconds`,
@@ -1288,8 +1288,8 @@ export class AmaraSkillsService {
       position: [5, 2],
 
       getEffect: (rank) => `
-      <b>Weapon Damage:</b> +10% per rank <br>
-      <b>Action Skill Damage:</b> +11% per rank <br>
+      <b>Weapon Damage:</b> +10%  <br>
+      <b>Action Skill Damage:</b> +11%  <br>
       <b>Duration:</b> 20 seconds`,
       getDescription: function (rank) {
         return this.description + '<br><br>' + this.getEffect(rank);
