@@ -25,17 +25,12 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Elemental Effect Damage: +2% per rank
-      Elemental Effect Duration: +10% per rank
-      Action Skill Elemental Effect Damage: +6% per rank
+      <b>Duration:</b> 7 seconds <br>
+      <b>Cooldown:</b> 13 seconds
       `,
 
-      getDescription: function (rank) {
-        if (rank === 0) {
-
-        }
-
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
       }
     },
 
@@ -51,17 +46,23 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Elemental Effect Damage: +2% per rank
-      Elemental Effect Duration: +10% per rank
-      Action Skill Elemental Effect Damage: +6% per rank
+      <b>Elemental Effect Damage:</b> +${rank * 2}% per rank <br>
+      <b>Elemental Effect Duration:</b> +${rank * 10}% per rank <br>
+      <b>Action Skill Elemental Effect Damage:</b> +${rank * 6}% per rank <br>
       `,
 
-      getDescription: function (rank) {
-        if (rank === 0) {
+      getDescription: function () {
+        let desc = this.description;
 
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
         }
 
-        return this.description + this.getEffect(rank);
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -75,12 +76,22 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Handling: +12% per rank
-      Accuracy: +10% per rank
+      <b>Handling:</b> +${rank * 12}% per rank <br>
+      <b>Accuracy:</b> +${rank * 10}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -94,11 +105,21 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Converted Damage: +4% per rank
+      <b>Converted Damage:</b> +${rank * 4}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -112,12 +133,22 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Shock Damage: +8% per rank
-      Elemental Damage: +4% per rank
+      <b>Shock Damage:</b> +${rank * 8}% per rank
+      <b>Elemental Damage:</b> +${rank * 4}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -136,7 +167,7 @@ export class AmaraSkillsService {
       `,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -151,11 +182,21 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Spread Chance: 8% per rank
+      <b>Spread Chance</b>: ${rank * 8}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -187,11 +228,11 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Bonus Targets: up to +4
-      Cooldown: 23 seconds`,
+      <b>Bonus Targets:</b> up to +4 <br>
+      <b>Cooldown:</b> 23 seconds`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -207,11 +248,11 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Weapon Damage: +10%
-      Duration: 8 seconds`,
+      <b>Weapon Damage: </b> +10% <br>
+      <b>Duration:</b> 8 seconds`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -225,11 +266,11 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Action Skill Damage: -25%
-      Duration: 2.5 seconds`,
+      <b>Action Skill Damage:</b> -25% <br>
+      <b>Duration:</b> 2.5 seconds`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -247,14 +288,24 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Ricochet Chance: 10% per rank
-      Ricochet Damage: -50%
-      Action Skill Ricochet Chance: 20% per rank
-      Action Skill Ricochet Damage: -25%
+      <b>Ricochet Chance:</b> 10% per rank <br>
+      <b>Ricochet Damage:</b> -50% <br>
+      <b>Action Skill Ricochet Chance: </b> 20% per rank <br>
+      <b>Action Skill Ricochet Damage:</b> -25%
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -270,14 +321,24 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Ricochet Chance: 10% per rank
-      Ricochet Damage: -50%
-      Action Skill Ricochet Chance: 20% per rank
-      Action Skill Ricochet Damage: -25%
+      <b>Ricochet Chance:</b> ${rank * 10}% per rank <br>
+      <b>Ricochet Damage:</b> -${rank * 50}% <br>
+      <b>Action Skill Ricochet Chance:</b> ${rank * 20}% per rank <br>
+      <b>Action Skill Ricochet Damage:</b> -${rank * 25}%
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -295,11 +356,11 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Cooldown: 8 seconds
+      <b>Cooldown:</b> 8 seconds
       `,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -316,12 +377,12 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Link Damage: 35% of damage dealt
-      Cooldown: 17 seconds
+      <b>Link Damage:</b> 35% of damage dealt
+      <b>Cooldown:</b> 17 seconds
       `,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -341,7 +402,7 @@ export class AmaraSkillsService {
       `,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description;
       }
     },
     {
@@ -357,11 +418,21 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Life Steal: 4% per rank
+      <b>Life Steal:</b> ${rank * 4}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -378,11 +449,21 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Extra Effect Chance: 7% per rank
+      <b>Extra Effect Chance:</b> ${rank * 7}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -398,11 +479,11 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      Bonus Elemental Damage: 11% of damage dealt
+     <b>Bonus Elemental Damage:</b> 11% of damage dealt
       `,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
   ];
@@ -437,12 +518,22 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <strong>Max Health:</strong> +${rank * 5}% per rank <br>
-      <strong>Elemental Damage Reduction:</strong> +${rank * 12} % per rank
+      <b>Max Health:</b> +${rank * 5}% per rank <br>
+      <b>Elemental Damage Reduction:</b> +${rank * 12} % per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -455,13 +546,23 @@ export class AmaraSkillsService {
       position: [1, 2],
 
       getEffect: (rank) => `
-      Reload Speed: +4% per rank
-      Weapon Swap Speed: +22% per rank
-      Mode Switch Speed: +21% per rank
+      <b>Reload Speed:</b> +${rank * 4}% per rank <br>
+      <b>Weapon Swap Speed:</b> +${rank * 22}% per rank <br>
+      <b>Mode Switch Speed:</b> +${rank * 21}% per rank
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -474,13 +575,23 @@ export class AmaraSkillsService {
       position: [1, 3],
 
       getEffect: (rank) => `
-      Effect Chance: +0.6% per rank and stack consumed
-      Max Rush Stacks: 10
-      Duration: 5 seconds
+      <b>Effect Chance:</b> +${rank * 0.6}% per rank and stack consumed <br>
+      <b>Max Rush Stacks:</b> 10 <br>
+      <b>Duration:</b> 5 seconds
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -494,13 +605,23 @@ export class AmaraSkillsService {
       position: [2, 1],
 
       getEffect: (rank) => `
-      Reload Speed: +0.4% per rank and stack
-      Reload Speed: +0.6% per rank and stack after action skill use
-      Duration: 8 seconds
+      <b>Reload Speed:</b> +${rank * 0.4}% per rank and stack
+      <b>Reload Speed:</b> +${rank * 0.6}% per rank and stack after action skill use
+      <b>Duration:</b> 8 seconds
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -514,13 +635,23 @@ export class AmaraSkillsService {
       position: [2, 2],
 
       getEffect: (rank) => `
-      Accuracy: +11% per rank
-      Critical Hit Bonus: +9% per rank
-      Duration: 8 seconds
+      <b>Accuracy:</b> +${rank * 11}% per rank <br>
+      <b>Critical Hit Bonus:</b> +${rank * 9}% per rank <br>
+      <b>Duration:</b> 8 seconds
       `,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -532,10 +663,20 @@ export class AmaraSkillsService {
       skillLimit: 5,
       position: [2, 3],
 
-      getEffect: (rank) => `Cooldown Rate: +4% per rank`,
+      getEffect: (rank) => `<b>Cooldown Rate:</b> +${rank * 4}% per rank`,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -550,7 +691,7 @@ export class AmaraSkillsService {
       getEffect: (rank) => `Life Steal: 30% of skill damage dealt`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -564,11 +705,11 @@ export class AmaraSkillsService {
       position: [3, 0],
 
       getEffect: (rank) => `
-      Damage Bonus: +50% per enemy hit
-      Cooldown: 24 seconds`,
+      <b>Damage Bonus:</b> +50% per enemy hit
+      <b>Cooldown:</b> 24 seconds`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -581,14 +722,14 @@ export class AmaraSkillsService {
       position: [3, 2],
 
       getEffect: (rank) => `
-      Soul Sap Lifesteal: +20%
-      Allure Radius: +100%
-      Glamour Duration: +50%
-      Bright Star Damage: +25%
-      Stillness of Mind: Breaks 0.75 seconds after being damaged`,
+      <b>Soul Sap Lifesteal:</b> +20% <br>
+      <b>Allure Radius:</b> +100% <br>
+      <b>Glamour Duration:</b> +50% <br>
+      <b>Bright Star Damage:</b> +25% <br>
+      <b>Stillness of Mind:</b> Breaks 0.75 seconds after being damaged`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -604,12 +745,12 @@ export class AmaraSkillsService {
       position: [3, 4],
 
       getEffect: (rank) => `
-      Damage: -35%
-      Max Duration: 6 seconds
-      Cooldown: +15%`,
+      <b>Damage:</b> -35% <br>
+      <b>Max Duration:</b> 6 seconds <br>
+      <b>Cooldown:</b> +15%`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -625,11 +766,11 @@ export class AmaraSkillsService {
       position: [4, 0],
 
       getEffect: (rank) => `
-      Elemental Projectiles: 3 per enemy hit
-      Cooldown: 24 seconds`,
+      <b>Elemental Projectiles:</b> 3 per enemy hit <br>
+      <b>Cooldown:</b> 24 seconds`,
 
       getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+        return this.description + '<br><br>' + this.getEffect(rank);
       }
     },
     {
@@ -642,11 +783,22 @@ export class AmaraSkillsService {
       position: [4, 1],
 
       getEffect: (rank) => `
-      Fire Rate: +4% per rank
-      Charge Time: +26% per rank`,
+      <b>Fire Rate:</b> +${rank * 4}% per rank <br>
+      <b>Charge Time:</b> +${rank * 26}% per rank`,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -660,11 +812,22 @@ export class AmaraSkillsService {
       position: [4, 2],
 
       getEffect: (rank) => `
-      Damage Increase: +5% per rank
-      Duration: 8 seconds`,
+      <b>Damage Increase:</b> +${rank * 5}% per rank <br>
+      <b>Duration:</b> 8 seconds`,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -678,12 +841,23 @@ export class AmaraSkillsService {
       position: [4, 3],
 
       getEffect: (rank) => `
-      Gun Damage: +3% per rank
-      Gun Damage: +5% per rank after action skill use
-      Duration: 8 seconds`,
+      <b>Gun Damage:</b> +${rank * 3}% per rank <br>
+      <b>Gun Damage:</b> +${rank * 5}% per rank after action skill use <br>
+      <b>Duration:</b> 8 seconds`,
 
-      getDescription: function (rank) {
-        return this.description + this.getEffect(rank);
+
+      getDescription: function () {
+        let desc = this.description;
+
+        if (this.skillCount !== 0) {
+          desc += '<br><br> <b>Current Rank:</b><br>' + this.getEffect(this.skillCount);
+        }
+
+        if (this.skillCount !== this.skillLimit) {
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
+        }
+
+        return desc;
       }
     },
     {
@@ -700,7 +874,7 @@ export class AmaraSkillsService {
       getEffect: (rank) => ``,
 
       getDescription: function (rank) {
-        return this.descriptio;
+        return this.description;
       }
     },
     {
@@ -722,7 +896,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -797,7 +971,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -821,7 +995,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -848,7 +1022,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -873,7 +1047,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -897,7 +1071,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -923,7 +1097,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -979,7 +1153,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -1025,7 +1199,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
@@ -1082,7 +1256,7 @@ export class AmaraSkillsService {
         }
 
         if (this.skillCount !== this.skillLimit) {
-          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount);
+          desc += '<br><br> <b>Next Rank:</b><br>' + this.getEffect(this.skillCount + 1);
         }
 
         return desc;
