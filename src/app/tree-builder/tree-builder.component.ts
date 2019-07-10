@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import html2canvas from 'html2canvas';
 
 import { CharacterService } from '../services/character.service';
 import { Character } from '../models/character.model';
@@ -55,6 +56,12 @@ export class TreeBuilderComponent implements OnInit, OnDestroy {
         });
       }
 
+    });
+  }
+
+  capture() {
+    html2canvas(document.querySelector('#capture')).then(canvas => {
+      document.body.appendChild(canvas);
     });
   }
 
