@@ -511,15 +511,16 @@ export class AmaraSkillsService {
       // index: 19,
       name: 'Do Harm',
       image: '',
-      description: 'Amara gains increased max health and elemental damage resistance to her action skill element. <br />',
+      description: `Killing an enemy grants Amara a stack of Rush. Activating her action skill consumes all Rush stacks. For every stack of Rush consumed, Amara's action skill damage is temporarily increased.`,
       type: 'skill',
       skillLimit: 5,
       position: [1, 1],
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Max Health:</b> +${rank * 5}%  <br>
-      <b>Elemental Damage Reduction:</b> +${rank * 12} %
+      <b>Action Skill Damage</b>: +${0.6 * rank}% per stack consumed <br>
+      <b>Max Rush Stacks:</b> 10 <br>
+      <b>Duration:</b> 20 seconds
       `,
 
       getDescription: function () {
