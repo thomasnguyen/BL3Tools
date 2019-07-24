@@ -321,10 +321,7 @@ export class AmaraSkillsService {
       skillCount: 0,
 
       getEffect: (rank) => `
-      <b>Ricochet Chance:</b> ${rank * 10}%  <br>
-      <b>Ricochet Damage:</b> -${rank * 50}% <br>
-      <b>Action Skill Ricochet Chance:</b> ${rank * 20}%  <br>
-      <b>Action Skill Ricochet Damage:</b> -${rank * 25}%
+      <b>Magazine Size:</b> +20%
       `,
 
       getDescription: function () {
