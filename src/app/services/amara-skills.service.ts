@@ -14,7 +14,6 @@ export class AmaraSkillsService {
   actionSkillSelected: Skill;
   public fistOfTheElements: Skill[] = [
     {
-      // index: 38,
       name: 'Phasegrasp',
       image: '',
       description: `Amara summons a giant fist that bursts from the ground and locks the targeted enemy in place for a few seconds.

@@ -80,7 +80,7 @@
     <ng-container *ngFor="let build of builds">
       <app-tree [treePoints]=build.treePoints [bgColor]=build.color [tree]=build.build [treeName]=build.name
         [chunkLocation]=build.chunkLocation [character]=character [totalPoints]=totalSkillCount
-        [treeMaxPoints]=pointLimit></app-tree>
+        [treeMaxPoints]=pointLimit [treeTier]=build.treeTier></app-tree>
     </ng-container>
   </div>
   <div class="mobile tree-container">

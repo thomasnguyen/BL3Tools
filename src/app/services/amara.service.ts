@@ -14,5 +14,4 @@ export class AmaraService {
     return this.amaraSkillsSvc.getBlankSlate();
   }
 
-
 }

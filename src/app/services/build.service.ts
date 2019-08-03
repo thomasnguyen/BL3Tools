@@ -71,6 +71,7 @@ export class BuildService {
     const buildMap = this.getBuildMap();
     const tree = treeBuild;
     let treePoints = 0;
+    let treeTier = 0;
 
     for (let x = 0; x < tree.length; x++) {
       const posX = tree[x].position[1];
@@ -84,13 +85,20 @@ export class BuildService {
 
       if (tree[x].type === 'skill') {
         treePoints += tree[x].skillCount;
+
+        // set y value to tier
+        // in theory it should give highest tier
+        if (tree[x].skillCount > 0) {
+          treeTier = tree[x].position[0] - 1;
+        }
       }
       buildMap[posY][posX] = tree[x];
     }
 
     return {
       builds: this.cleanBuild(buildMap.flat()),
-      treePoints: treePoints
+      treePoints: treePoints,
+      treeTier: treeTier,
     };
   }
 
@@ -179,7 +187,7 @@ export class BuildService {
         if (x === 0) {
           return 0;
         } else {
-          return x - 1;
+          return x;
         }
 
       }
@@ -194,7 +202,6 @@ export class BuildService {
       const skill = build[x];
       if (skill !== 'x') {
         const tier = build[x].position[0] - 1;
-
         if (skill.type === 'skill') {
           if (tier > this.getTier(totalSkillCount)) {
             build[x].skillCount = 0;
@@ -235,6 +242,7 @@ export class BuildService {
             build: tree.builds,
             chunkLocation: buildChunks[idx],
             treePoints: tree.treePoints,
+            treeTier: tree.treeTier,
           };
         })
     };

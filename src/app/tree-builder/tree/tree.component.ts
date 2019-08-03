@@ -19,14 +19,22 @@ export class TreeComponent implements OnInit, OnChanges {
   augmentsSelected = [];
   tierLimit = [0, 5, 10, 15, 20, 25, 30];
 
+
+
+
   @Input() bgColor: string;
   @Input() treeName: string;
   @Input() tree: Skill[];
+
   @Input() chunkLocation: any[];
   @Input() treePoints: number;
   @Input() character: Character;
   @Input() totalPoints: number;
   @Input() treeMaxPoints: number;
+
+
+  @Input() treeTier: number;
+
 
   constructor(
     private buildSvc: BuildService,
@@ -131,24 +139,22 @@ export class TreeComponent implements OnInit, OnChanges {
 
 
   onDecreaseSkill(skill: Skill) {
+    if (!(this.treePoints >= (skill.position[0] - 1) * 5) && !(skill.position[0] <= 1)) {
+      return false;
+    }
+
+
+    const willDeselectLowerTier = (this.treePoints - 1) / 5 < this.treeTier && skill.position[0] - 1 < this.treeTier;
     // do check to make sure it does not go over limit
-    if (skill.skillCount === 0) {
+    if (skill.skillCount === 0 || willDeselectLowerTier) {
+      this.toastr.error('ERR: You may not unselect skill if it decreases skill');
       return false;
     } else {
-      // global skill point for tree
-
-      if (this.treePoints % 10 === 1 || this.treePoints % 10 === 6) {
-        if ((skill.position[0] + 1) * 5 < this.treePoints) {
-          return false;
-        }
-      }
 
       // update route
       this.updateRoute(skill.index, skill.skillCount - 1);
       return false;
-
     }
-
   }
 
   updateRoute(index: number, count: number): void {

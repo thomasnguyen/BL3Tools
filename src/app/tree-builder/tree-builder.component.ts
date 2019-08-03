@@ -42,8 +42,9 @@ export class TreeBuilderComponent implements OnInit, OnDestroy {
       this.character = this.charSvc.getCharacterByName(charName);
       const buildToken = params.get('build');
       const getBuild = this.buildSvc.getTrees(this.character.uid, buildToken);
-      this.builds = getBuild.builds;
 
+      this.builds = getBuild.builds;
+      console.log(getBuild);
       this.equippedSkills = getBuild.equippedSkills.equipArray;
       this.totalSkillCount = 4;
       if (this.builds) {
