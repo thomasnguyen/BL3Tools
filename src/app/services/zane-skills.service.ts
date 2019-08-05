@@ -303,7 +303,357 @@ export class ZaneSkillsService {
     },
   ];
   public underCover: Skill[] = [];
-  public doubledAgent: Skill[] = [];
+  public doubledAgent: Skill[] = [
+    {
+      name: 'Digi-Clone',
+      image: '',
+      description: `Spawn a Digi-Clone of Zane. This clone stays in place, but distracts and fires at enemies.
+      Pressing the Action Skill button while the Clone is active causes Zane and the Clone to swap places.	`,
+      type: 'action-skill',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+        18 second Duration, 26 second Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Synchronicity',
+      image: '',
+      description: `Whenever one or more of Zane's Action Skills are active, he gains increased Gun Damage for each active Action Skill.	`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      2% Gun Damage per active Action Skill
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Praemunitus',
+      image: '',
+      description: `Zane and his Digi-Clone gain increased Magazine Size.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      4% Magazine Size
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Borrowed Time',
+      image: '',
+      description: `Zane gains increased Action Skill Duration for every active Action Skill.`,
+      type: 'action-skill',
+      skillLimit: 5,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      4% Action Skill DUration per active Action Skill
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Binary System',
+      image: '',
+      description: `Whenever Zane swaps places with his Clone, a Cryo Nova is triggered around Zane and his Clone.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      66 Nova Damage
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Donnybrook',
+      image: '',
+      description: `Kill Skill. Whenever Zane kills an enemy,
+      he and his Digi-Clonee receive increased Gun Damage and gain Health Regeneration for a few seconds.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      2% Gun Damage, 0.5% Health Regeneration per second related to Missing Health, 8 second Duration
+
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Fractal Frags',
+      image: '',
+      description: `The Digi-Clone throws a copy of Zane's current grenade mod when it is first activated.
+      If the Digi-Clone is killed, it drops a free grenade.
+      Kill Skill. Killing an enemy while the Digi-Clone is active gives the Clone a chance to throw a grenade.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      30% Grenade Chance
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Duct Tape Mod',
+      image: '',
+      description: `The first shot fired from Zane's gun has a chance to also fire a grenade.
+      The more grenades in his capacity, the higher the chance.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to 5% Grenade Chance
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    }, {
+      name: 'Schadenfreude',
+      image: '',
+      description: `Whenever the Clone takes damage, Zane's shield is restored by a portion of that damage.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      11% Shield Restored on Digi-Clone damage
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Quick Breather	',
+      image: '',
+      description: `Whenever Zane swaps places with his Clone, his shield immediately begins recharging.`,
+      type: 'skill',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Which One's Real`,
+      image: '',
+      description: `Enemies are more likely to target the Clone for a few seconds after it's summoned and after swapping places.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      6 second Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Dooelbanger`,
+      image: '',
+      description: `Hold down the Action Skill button to end the Action Skill early.
+       When Zane's Action Skill is ended, the Clone explodes, dealing Fire Damage to all nearby enemies.
+       The more Action Skill time remaining, the greater the damage.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to 1326 Damage
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Pocket Full of Grenades	`,
+      image: '',
+      description: `Kill Skill. After killing an enemy, Zane gains Grenade Regeneration for a few seconds.	`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      5% Grenade Regeneration, 8 second Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Old-U`,
+      image: '',
+      description: `Press the Action Skill button during Fight for Your Life if Digi-Clone is active to
+      destroy the clone and immediately gain a Second Wind with full health.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Supersonic Man`,
+      image: '',
+      description: `Whenever one or more of Zane's Action Skills are active,
+      he gains increased Movement Speed for each active Action Skill.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      4% Movement Speed per active Action Skill
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Digital Distribution`,
+      image: '',
+      description: `If Zane takes health damage while the Clone is active, a portion of that damage is shared to his Clone instead.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      75% Shared Health Damage
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Like a Ghost`,
+      image: '',
+      description: `Zane and his Digi-Clone gain a chance to ignore bullets. This chance is increased for a few seconds after activating an action skill. This effect stacks.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      4% Ignore Bullet Chance, 1% Additional Ignore Bullet Chance, 8 second Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Boom. Enhance.`,
+      image: '',
+      description: `Whenever Zane summons his Digi-Clone, it consumes up to 3 grenades.
+      For every grenade consumed, the Digi-Clone gains increased Gun Damage, Max Health, Fire Rate and Reload Speed.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      11% Gun Damage per grenade, 17% Max Health per grenade, 17% Fire Rate per grenade, 12% Reload Speed per grenade
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Trick of the Light`,
+      image: '',
+      description: `Zane deals Bonus Shock Damage to enemies that aren't targeting him.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      6% of damage dealt as Bonus Damage
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: `Double Barrel`,
+      image: '',
+      description: `The Clone is equipped with a copy of Zane's Current Weapon when activated.
+      Swapping places with the Clone causes Zane and his clone to gain increased Gun Damage.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      10% Gun Damage, 100% Item Duping
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+  ];
 
   constructor() { }
 
