@@ -9,7 +9,9 @@ export class ZaneSkillsService {
     {
       name: 'SNTNL',
       image: '',
-      description: `Send into battle an automated SNTNL drone that continually flies through the environment and attacks enemies with its Machine Guns. Pressing the Action Skill button while SNTNL is active causes it to attack the enemy under Zane's crosshairs, if any.	`,
+      description: `Send into battle an automated SNTNL drone that
+      continually flies through the environment and attacks enemies with its Machine Guns.
+      Pressing the Action Skill button while SNTNL is active causes it to attack the enemy under Zane's crosshairs, if any.	`,
       type: 'action-skill',
       skillLimit: 1,
       position: [0, 2],
@@ -29,11 +31,11 @@ export class ZaneSkillsService {
       description: `Kill Skill. After killing an enemy, Zane gains increased Movement Speed for a few seconds.`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [1, 1],
       skillCount: 0,
 
       getEffect: (rank) => `
-        4% Movement Speed, 8 second Duration
+        ${rank * 4}% Movement Speed, 8 second Duration
       `,
 
       getDescription: function () {
@@ -46,11 +48,11 @@ export class ZaneSkillsService {
       description: `Zane gains increased Weapon Swap Speed. The next shot fired after swapping weapons deals Bonus Cryo Damage.	`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [1, 2],
       skillCount: 0,
 
       getEffect: (rank) => `
-        15% Weapon Swap Speed, 6% Bonus Cryo Damage
+        ${rank * 15}% Weapon Swap Speed, ${rank * 6}% Bonus Cryo Damage
       `,
 
       getDescription: function () {
@@ -63,11 +65,11 @@ export class ZaneSkillsService {
       description: `Zane's Gun Damage is increased while moving. The quicker he moves, the greater the Gun Damage bonus.`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [1, 3],
       skillCount: 0,
 
       getEffect: (rank) => `
-      6% bonus Gun Damage at default walk speed
+      ${rank * 6}% bonus Gun Damage at default walk speed
       `,
 
       getDescription: function () {
@@ -75,12 +77,12 @@ export class ZaneSkillsService {
       }
     },
     {
-      name: `Winter's Drone	`,
+      name: `Winter's Drone`,
       image: '',
       description: `Converts SNTNL's primary weapons to Cryo Damage.`,
-      type: 'action-skill',
+      type: 'augment',
       skillLimit: 1,
-      position: [0, 2],
+      position: [2, 0],
       skillCount: 0,
 
       getEffect: (rank) => `
@@ -94,14 +96,15 @@ export class ZaneSkillsService {
     {
       name: `Cool Hand`,
       image: '',
-      description: `Zane gains increased Reload Speed. Kill Skill. After killing an enemy, Zane's Reload Speed is increased for a few seconds.`,
+      description: `Zane gains increased Reload Speed.
+      Kill Skill. After killing an enemy, Zane's Reload Speed is increased for a few seconds.`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [2, 1],
       skillCount: 0,
 
       getEffect: (rank) => `
-      3% Reload Speed after kill, 2% Reload Speed, 8 second Duration
+      ${rank * 3}% Reload Speed after kill, ${rank * 2}% Reload Speed, 8 second Duration
       `,
 
       getDescription: function () {
@@ -113,8 +116,8 @@ export class ZaneSkillsService {
       image: '',
       description: `SNTNL will occasionally drop a free grenade based on your current grenade mod while attacking enemies.`,
       type: 'skill',
-      skillLimit: 5,
-      position: [0, 2],
+      skillLimit: 1,
+      position: [2, 2],
       skillCount: 0,
 
       getEffect: (rank) => `
@@ -131,11 +134,11 @@ export class ZaneSkillsService {
       description: `Kill Skill. After killing an enemy, Zane's weapons gain Life Steal for a few seconds.`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [2, 3],
       skillCount: 0,
 
       getEffect: (rank) => `
-      4% Life Steal on damage dealt, 8 second Duration
+      ${rank * 4}% Life Steal on damage dealt, 8 second Duration
       `,
 
       getDescription: function () {
@@ -145,10 +148,12 @@ export class ZaneSkillsService {
     {
       name: `Bad Dose`,
       image: '',
-      description: `SNTNL occasionally shoots out a beam of Radiation that weakens enemies and buffs Zane. For every weakened enemy, Zane's Movement Speed and Fire Rate are increased. Weakened enemies have decreased Movement Speed and Attack Speed.`,
-      type: 'action-skill',
-      skillLimit: 5,
-      position: [0, 2],
+      description: `SNTNL occasionally shoots out a beam of Radiation that weakens enemies and buffs Zane.
+      For every weakened enemy, Zane's Movement Speed and Fire Rate are increased.
+      Weakened enemies have decreased Movement Speed and Attack Speed.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [3, 1],
       skillCount: 0,
 
       getEffect: (rank) => `
@@ -165,8 +170,8 @@ export class ZaneSkillsService {
       image: '',
       description: `Activating an Action Skill automatically activates all of Zane's Kill Skills.	`,
       type: 'skill',
-      skillLimit: 5,
-      position: [0, 2],
+      skillLimit: 1,
+      position: [3, 2],
       skillCount: 0,
 
       getEffect: (rank) => ``,
@@ -179,9 +184,9 @@ export class ZaneSkillsService {
       name: `Static Field`,
       image: '',
       description: `SNTNL emits a static field that sends a Shock beam to nearby enemies, draining their shields and replenishing Zane's.	`,
-      type: 'skill',
-      skillLimit: 5,
-      position: [0, 2],
+      type: 'augment',
+      skillLimit: 1,
+      position: [3, 4],
       skillCount: 0,
 
       getEffect: (rank) => `
@@ -196,9 +201,9 @@ export class ZaneSkillsService {
       name: `Boomsday`,
       image: '',
       description: `SNTNL adds a rocket pod to its primary weapons, allowing it to shoot rockets as well as machine guns.`,
-      type: 'skill',
-      skillLimit: 5,
-      position: [0, 2],
+      type: 'augment',
+      skillLimit: 1,
+      position: [4, 0],
       skillCount: 0,
 
       getEffect: (rank) => `
@@ -215,11 +220,11 @@ export class ZaneSkillsService {
       description: `SKill Skill. After killing an enemy, Zane gains increased Fire Rate for a few seconds.`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [4, 1],
       skillCount: 0,
 
       getEffect: (rank) => `
-        4% Fire Rate, 8 second Duration
+        ${rank * 4}% Fire Rate, 8 second Duration
       `,
 
       getDescription: function () {
@@ -232,11 +237,11 @@ export class ZaneSkillsService {
       description: `Kill Skill. After killing an enemy, Zane's next five shots all have a chance to fire an additional projectile.`,
       type: 'skill',
       skillLimit: 5,
-      position: [0, 2],
+      position: [4, 3],
       skillCount: 0,
 
       getEffect: (rank) => `
-        10% Extra Shot Chance
+        ${rank * 10}% Extra Shot Chance
       `,
 
       getDescription: function () {
@@ -246,10 +251,12 @@ export class ZaneSkillsService {
     {
       name: `Almighty Ordnance`,
       image: '',
-      description: `Hold down the Action Skill button while SNTNL is deployed to paint a target area. SNTNL fires a missile barrage at the area, and if an enemy is killed, Almighty Ordinance duration is reset. This can only be used once per Action Skill use.`,
-      type: 'action-skill',
+      description: `Hold down the Action Skill button while SNTNL is deployed to paint a target area.
+      SNTNL fires a missile barrage at the area, and if an enemy is killed,
+      Almighty Ordinance duration is reset. This can only be used once per Action Skill use.`,
+      type: 'augment',
       skillLimit: 1,
-      position: [0, 2],
+      position: [4, 4],
       skillCount: 0,
 
       getEffect: (rank) => `
@@ -266,11 +273,11 @@ export class ZaneSkillsService {
       description: `Kill Skill. Killing an enemy increases Zane's Action Skill Duration. This skill has diminishing returns.`,
       type: 'skill',
       skillLimit: 3,
-      position: [0, 2],
+      position: [5, 2],
       skillCount: 0,
 
       getEffect: (rank) => `
-        Up to 5% max duration Duration Return
+        Up to ${rank * 5} % max duration Duration Return
       `,
 
       getDescription: function () {
@@ -283,7 +290,7 @@ export class ZaneSkillsService {
       description: `All of Zane's Kill Skills gain increased effect and duration.`,
       type: 'skill',
       skillLimit: 1,
-      position: [0, 2],
+      position: [6, 2],
       skillCount: 0,
 
       getEffect: (rank) => `
