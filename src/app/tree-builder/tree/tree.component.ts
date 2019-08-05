@@ -139,14 +139,14 @@ export class TreeComponent implements OnInit, OnChanges {
 
 
   onDecreaseSkill(skill: Skill) {
-    if (!(this.treePoints >= (skill.position[0] - 1) * 5) && !(skill.position[0] <= 1)) {
+    if (!(this.treePoints >= (skill.position[0] - 1) * 5) && !(skill.position[0] <= 1) || skill.skillCount === 0) {
       return false;
     }
 
 
     const willDeselectLowerTier = (this.treePoints - 1) / 5 < this.treeTier && skill.position[0] - 1 < this.treeTier;
     // do check to make sure it does not go over limit
-    if (skill.skillCount === 0 || willDeselectLowerTier) {
+    if (willDeselectLowerTier) {
       this.toastr.error('ERR: You may not unselect skill if it decreases skill');
       return false;
     } else {
