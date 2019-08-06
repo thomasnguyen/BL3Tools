@@ -1025,21 +1025,21 @@ export class ZaneSkillsService {
 
     this.underCover = this.underCover.map(skill => {
       skill['index'] = index++;
-      skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['image'] = `assets/zaneIcons/${index}.png`;
       skill['color'] = 'green';
       return skill;
     });
 
     this.hitman = this.hitman.map(skill => {
       skill['index'] = index++;
-      skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['image'] = `assets/zaneIcons/${index}.png`;
       skill['color'] = 'blue';
       return skill;
     });
 
     this.doubledAgent = this.doubledAgent.map(skill => {
       skill['index'] = index++;
-      skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['image'] = `assets/zaneIcons/${index}.png`;
       skill['color'] = 'red';
       return skill;
     });
@@ -1056,6 +1056,25 @@ export class ZaneSkillsService {
       { name: 'Hitman', color: 'blue' },
       { name: 'Double Agent', color: 'red' },
     ];
+  }
+
+  getSelectedActionSkillTrees(buildToken: string) {
+    const selected = [];
+
+    if (buildToken[0]) {
+      selected.push('underCover');
+    }
+
+    if (buildToken[20]) {
+      selected.push('hitman');
+    }
+
+    if (buildToken[37]) {
+      selected.push('doubleAgent');
+    }
+
+
+    return selected;
   }
 
   getSpecialLocations(type: string) {

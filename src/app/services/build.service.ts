@@ -27,7 +27,7 @@ export class BuildService {
     return buildArray.join('');
   }
 
-  updateSpecialSkill(skill: Skill, charID: number): any {
+  updateSpecialSkill(skill: Skill, charID: number, buildToken?: string): any {
     // if amara's acton-skills
     if (charID === 1) {
       return {
@@ -40,7 +40,17 @@ export class BuildService {
       // only 2 action skills
       // only two augments per action skill
 
+      // get all current action-skills
+      const selectedActionSkillTrees: string[] = this.zaneSkillsSvc.getSelectedActionSkillTrees(buildToken);
 
+
+
+      if (skill.type === 'action-skill') {
+        // if
+
+      } else if (skill.type === 'augment') {
+        // check if
+      }
 
       return {
         skillLocations: this.zaneSkillsSvc.getSpecialLocations(skill.type),
