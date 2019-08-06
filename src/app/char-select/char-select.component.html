@@ -6,7 +6,7 @@
 </div>
 <div class="modal-body">
   <div class="container">
-    <div (click)="goToCharacter(2)" class="item">
+    <div (click)="goToCharacter(1)" class="item">
       <div class="avy amara"></div>
       <div class="title">Amara</div>
     </div>
@@ -21,11 +21,9 @@
       <div class="coming-soon">Coming <br> Soon!</div>
 
     </div>
-    <div class="item inactive">
+    <div class="item" (click)="goToCharacter(4)">
       <div class="avy zane"></div>
       <div class="title">Zane</div>
-      <div class="coming-soon">Coming <br> Soon!</div>
-
     </div>
   </div>
 </div>

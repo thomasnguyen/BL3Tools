@@ -40,11 +40,13 @@ export class TreeBuilderComponent implements OnInit, OnDestroy {
     this.route.paramMap.pipe(takeWhile(() => this.isAlive)).subscribe(params => {
       const charName = params.get('char');
       this.character = this.charSvc.getCharacterByName(charName);
+      console.log(this.character);
       const buildToken = params.get('build');
+      console.log('buildToken', params.get('build'));
+
       const getBuild = this.buildSvc.getTrees(this.character.uid, buildToken);
 
       this.builds = getBuild.builds;
-      console.log(getBuild);
       this.equippedSkills = getBuild.equippedSkills.equipArray;
       this.totalSkillCount = 4;
       if (this.builds) {

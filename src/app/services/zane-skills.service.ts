@@ -302,7 +302,360 @@ export class ZaneSkillsService {
       }
     },
   ];
-  public underCover: Skill[] = [];
+  public underCover: Skill[] = [
+    {
+      name: 'Barrier',
+      image: '',
+      description: `Drop a deployable Barrier that blocks incoming projectiles.
+       Zane and his allies can shoot through the Barrier, dealing increased Gun Damage.
+       Pressing the Action Skill button while Barrier is active picks up and holds the Barrier, but the size and bonuses are decreased.`,
+      type: 'action-skill',
+      skillLimit: 1,
+      position: [0, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      9 second Duration, 18 second Cooldown, 20% Damage Amp
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Adrenaline',
+      image: '',
+      description: `Zane gains increased Action Skill Cooldown Rate. This bonus is based on the amount of shields he has.
+      The more percent full, the greater the bonus.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [1, 1],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to ${rank * 4}% Action Skill Cooldown Rate.
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Hearty Stock',
+      image: '',
+      description: `Zane gains increased Maximum Shield Capacity.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [1, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 6}% Max Shields
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Ready for Action',
+      image: '',
+      description: `Zane gains improved Shield Recharge Rate and Shield Recharge Delay.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [1, 3],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 6}% Shield Recharge Rate, ${rank * -8}% Shield Recharge Delay
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Charged Relay',
+      image: '',
+      description: `Whenever Zane or an ally touches the Barrier, they gain increased Movement Speed and Fire Rate for a few seconds.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [2, 0],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      13% Fire Rate, 11% Movement Speed, 8 second Duration after moving away from the Barrier
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Brainfreeze',
+      image: '',
+      description: `Whenever Zane scores a Critical Hit on an enemy, there's a chance they will be Slowed.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [2, 1],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 2.5}% Slow Chance
+
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Stiff Upper Lip',
+      image: '',
+      description: `Whenever Zane is damaged, he gains Damage Resistance against that damage type.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [2, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 5}% Damage Resistance
+
+
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Rise to the Occasion',
+      image: '',
+      description: `Zane gains Health Regeneration. The lower his shield is, the higher the bonus.
+      While Zane's shields are full, he does not receive any health regeneration.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [2, 3],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to ${rank * 1}% of Max Health Regeneration per second
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Nanites or Some Shite',
+      image: '',
+      description: `Zane and his allies gain Health Regeneration, increased Reload Speed,
+      and greatly improved Shield Recharge Delay while near his Barrier. The lowe their health, the more health is regenerated.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [3, 0],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to 4% Max Health regeneration per second while near the Barrier. -33% Shield Recharge Delay.11% Reload Speed.
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Confident Competence',
+      image: '',
+      description: `While Zane's shields are active, he gains increased Gun Damage and Accuracy.
+      This bonus is based on the amount of shields he has. The more percent full, the greater the bonus.	`,
+      type: 'skill',
+      skillLimit: 1,
+      position: [3, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to 10% Gun Damage, up to 22% Accuracy
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'All-rounder',
+      image: '',
+      description: `Zane's Barrier becomes a dome, covering all sides.	`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [3, 4],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      20% Cooldown
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Redistribution',
+      image: '',
+      description: `Zane and allies near the Barrier gain increased Gun Damage for a few seconds after the Barrier takes damage.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [4, 0],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      9% Gun Damage, 3 second Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Really Expensive Jacket',
+      image: '',
+      description: `Elemental damage over time effects applied to Zane have reduced duration.`,
+      type: 'skill',
+      skillLimit: 1,
+      position: [4, 1],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      -50% Elemental Effect Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Best Served Cold',
+      image: '',
+      description: `Kill Skill. Whenever Zane kills an enemy, they create a Cryo Nova,
+       dealing damage to all nearby enemies. This skill has a short cooldown.`,
+      type: 'skill',
+      skillLimit: 5,
+      position: [4, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 3} Damage, 3 second Cooldown
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Futility Belt',
+      image: '',
+      description: `Zane gains resistance to non-elemental damage. Kill Skill.
+      All elemental damage Zane takes is converted to non-elemental damage.	`,
+      type: 'skill',
+      skillLimit: 1,
+      position: [4, 3],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      22% Damage Reduction, 8 second Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Deterrence Field',
+      image: '',
+      description: `Enemies that touch the Barrier take Shock Damage and are staggered.`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [4, 4],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      18 Shock Damage
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Refreshment',
+      image: '',
+      description: `Whenever Zane damages a frozen enemy with his weapon, he gains some of that damage back as health.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [5, 1],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 8}% Life Steal on damage dealt
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Calm, Cool, Collected',
+      image: '',
+      description: `Whenever Zane Freezes an enemy, his shield instantly begins recharging.
+      If Zane's shields are already full, he regenerates health for a few seconds.
+      If Zane's health is already full, his Action Skill Cooldowns and Durations are immediately reset.`,
+      type: 'skill',
+      skillLimit: 1,
+      position: [5, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      Up to 4% max Health Regeneration per second, 3 second Regeneration Duration
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Nerves of Steel',
+      image: '',
+      description: `Zane gains increasing Accuracy and Handling. The longer his shield is full, the greater the bonus.`,
+      type: 'skill',
+      skillLimit: 3,
+      position: [5, 3],
+      skillCount: 0,
+
+      getEffect: (rank) => `
+      ${rank * 2}% Accuracy per second, ${rank * 2.5}% Handling per second, 99 Max Stacks
+      `,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+    {
+      name: 'Distributed Denial',
+      image: '',
+      description: `Zane's Barrier gains the effects of his currently equipped Shield Mod.
+      Additionally, shield effects are applied to all allies near the Barrier. Bonuses to Zane are reduced.	`,
+      type: 'augment',
+      skillLimit: 1,
+      position: [6, 2],
+      skillCount: 0,
+
+      getEffect: (rank) => ``,
+
+      getDescription: function () {
+        return this.description + '<br><br>' + this.getEffect(this.skillCount);
+      }
+    },
+  ];
   public doubledAgent: Skill[] = [
     {
       name: 'Digi-Clone',
@@ -571,7 +924,7 @@ export class ZaneSkillsService {
       image: '',
       description: `If Zane takes health damage while the Clone is active, a portion of that damage is shared to his Clone instead.`,
       type: 'augment',
-      skillLimit: 3,
+      skillLimit: 1,
       position: [4, 4],
       skillCount: 0,
 
@@ -658,8 +1011,81 @@ export class ZaneSkillsService {
 
   constructor() { }
 
+
+  public getSkillSet(): any[] {
+    this.prepBuilds();
+    return [
+      this.underCover, this.hitman, this.doubledAgent
+    ];
+  }
+
+  prepBuilds() {
+    // configure index
+    let index = 0;
+
+    this.underCover = this.underCover.map(skill => {
+      skill['index'] = index++;
+      skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['color'] = 'green';
+      return skill;
+    });
+
+    this.hitman = this.hitman.map(skill => {
+      skill['index'] = index++;
+      skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['color'] = 'blue';
+      return skill;
+    });
+
+    this.doubledAgent = this.doubledAgent.map(skill => {
+      skill['index'] = index++;
+      skill['image'] = `assets/amaraIcons/${index}.png`;
+      skill['color'] = 'red';
+      return skill;
+    });
+  }
+
   getBlankSlate(): string {
-    const buildLength = 0;
+    const buildLength: number = this.underCover.length + this.hitman.length + this.doubledAgent.length;
     return '0'.repeat(buildLength);
   }
+
+  getTreeInfo(): any {
+    return [
+      { name: 'Under Cover', color: 'green' },
+      { name: 'Hitman', color: 'blue' },
+      { name: 'Double Agent', color: 'red' },
+    ];
+  }
+
+  getSpecialLocations(type: string) {
+    const specialLocations = this.getSpecials(type).map(skill => {
+      return skill.index;
+    });
+
+    return specialLocations;
+  }
+
+  getSpecials(type: string): any {
+    // this.prepBuilds();
+    const specialArray = [];
+    this.underCover.forEach(skill => {
+      if (skill.type === type) {
+        specialArray.push(skill);
+      }
+    });
+    this.hitman.forEach(skill => {
+      if (skill.type === type) {
+        specialArray.push(skill);
+      }
+    });
+    this.doubledAgent.forEach(skill => {
+      if (skill.type === type) {
+        specialArray.push(skill);
+      }
+    });
+
+    return specialArray;
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Character } from '../models/character.model';
 import { AmaraService } from './amara.service';
+import { ZaneService } from './zane.service';
 
 @Injectable({
   providedIn: 'root'
@@ -29,31 +30,36 @@ export class CharacterService {
 
   constructor(
     private amaraSvc: AmaraService,
+    private zaneSvc: ZaneService,
   ) { }
 
   getCharacters(): Character[] {
-    const fl4k: Character = {
-      uid: 1,
-      name: 'fl4k'
-    };
-
     const Amara: Character = {
-      uid: 2,
+      uid: 1,
       name: 'Amara',
       fullName: 'Amara the Siren',
       avatar: 'assets/amaraAvatar.png'
     };
 
-    const Zane: Character = {
-      uid: 3,
-      name: 'Zane'
+
+    const fl4k: Character = {
+      uid: 2,
+      name: 'fl4k'
     };
+
     const Moze: Character = {
-      uid: 4,
+      uid: 3,
       name: 'Moze'
     };
 
-    return [fl4k, Amara, Zane, Moze];
+    const Zane: Character = {
+      uid: 4,
+      name: 'Zane',
+      fullName: 'Zane the Operative',
+      avatar: 'assets/amaraAvatar.png'
+    };
+
+    return [Amara, fl4k, Moze, Zane];
   }
 
   getCharacterByID(id: number): Character {
@@ -71,16 +77,18 @@ export class CharacterService {
 
   getCharMap() {
     return {
-      1: this.fl4k,
-      2: this.Amara,
-      3: this.Zane,
-      4: this.Moze,
+      1: this.Amara,
+      2: this.fl4k,
+      3: this.Moze,
+      4: this.Zane,
     };
   }
 
   getBlankSlate(charID: number): string {
-    if (charID === 2) {
+    if (charID === 1) {
       return this.amaraSvc.getBlankSlate();
+    } else if (charID === 4) {
+      return this.zaneSvc.getBlankSlate();
     }
   }
 }

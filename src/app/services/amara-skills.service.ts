@@ -1358,7 +1358,6 @@ export class AmaraSkillsService {
 
 
   public getSkillSet(): any[] {
-    // TODO: Remove prepbuilds -> do it before hand
     this.prepBuilds();
     return [
       this.brawl, this.mysticalAssault, this.fistOfTheElements
@@ -1542,7 +1541,6 @@ export class AmaraSkillsService {
 
   getSpecials(type: string): any {
     // this.prepBuilds();
-
     const specialArray = [];
     this.brawl.forEach(skill => {
       if (skill.type === type) {

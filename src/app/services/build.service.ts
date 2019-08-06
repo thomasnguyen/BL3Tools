@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AmaraSkillsService } from './amara-skills.service';
 import { Skill } from '../models/skill.model';
+import { ZaneSkillsService } from './zane-skills.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class BuildService {
   tierLimit: number[] = [0, 5, 10, 15, 20, 25];
 
   constructor(
-    private amaraSkillsSvc: AmaraSkillsService
+    private amaraSkillsSvc: AmaraSkillsService,
+    private zaneSkillsSvc: ZaneSkillsService,
   ) { }
 
 
@@ -27,19 +29,31 @@ export class BuildService {
 
   updateSpecialSkill(skill: Skill, charID: number): any {
     // if amara's acton-skills
-    if (charID === 2) {
+    if (charID === 1) {
       return {
         skillLocations: this.amaraSkillsSvc.getSpecialLocations(skill.type),
+        skillSelected: [skill.index],
+      };
+    }
+
+    if (charID === 4) {
+      // only 2 action skills
+      // only two augments per action skill
+
+
+
+      return {
+        skillLocations: this.zaneSkillsSvc.getSpecialLocations(skill.type),
         skillSelected: [skill.index],
       };
     }
   }
 
   getSkillSet(charID: number): any[] {
-    if (charID === 2) {
+    if (charID === 1) {
       return this.amaraSkillsSvc.getSkillSet();
-    } else {
-      // default
+    } else if (charID === 4) {
+      return this.zaneSkillsSvc.getSkillSet();
       return [];
     }
   }
@@ -104,8 +118,10 @@ export class BuildService {
 
 
   getTreeInfo(charID): any {
-    if (charID === 2) {
+    if (charID === 1) {
       return this.amaraSkillsSvc.getTreeInfo();
+    } else if (charID === 4) {
+      return this.zaneSkillsSvc.getTreeInfo();
     }
   }
 
@@ -218,7 +234,9 @@ export class BuildService {
 
   public getTrees(charID: number, token: string): any {
     const treeInfo = this.getTreeInfo(charID);
+    console.log('treeInfo', treeInfo);
     const skillSet: any[] = this.getSkillSet(charID);
+    console.log('skillSet', skillSet);
 
     const buildChunks: any[] = this.getBuildChunks(skillSet);
 
