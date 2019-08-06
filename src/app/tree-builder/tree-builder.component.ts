@@ -27,6 +27,12 @@ export class TreeBuilderComponent implements OnInit, OnDestroy {
   modalRef: BsModalRef;
   permalink: string;
   equippedSkills: any;
+
+  avyMap = {
+    'Amara': 'assets/amaraAvy.png',
+    'Zane': 'assets/zaneAvy.png',
+  };
+
   constructor(
     private buildSvc: BuildService,
     private charSvc: CharacterService,

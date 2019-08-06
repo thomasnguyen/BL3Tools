@@ -1058,23 +1058,99 @@ export class ZaneSkillsService {
     ];
   }
 
-  getSelectedActionSkillTrees(buildToken: string) {
-    const selected = [];
+  getSelectedActionSkillTrees(buildToken: string, type: string, skill: Skill) {
+    /*     0: 'underCover',
+        20: 'hitman',
+        37: 'doubleAgent', */
 
-    if (buildToken[0]) {
-      selected.push('underCover');
+    let selected = [];
+
+    const actionSkillMap = {
+      0: this.underCover[0],
+      20: this.hitman[0],
+      37: this.doubledAgent[0],
+    };
+
+    const treeSkillMap = {
+      4: this.underCover[0],
+      8: this.underCover[0],
+      10: this.underCover[0],
+      11: this.underCover[0],
+      15: this.underCover[0],
+      20: this.underCover[0],
+
+      24: this.hitman[0],
+      30: this.hitman[0],
+      31: this.hitman[0],
+      34: this.hitman[0],
+
+      41: this.doubledAgent[0],
+      45: this.doubledAgent[0],
+      47: this.doubledAgent[0],
+      48: this.doubledAgent[0],
+      52: this.doubledAgent[0],
+    };
+
+
+    if (buildToken[0] === '1') {
+      selected.push(actionSkillMap[0]);
     }
 
-    if (buildToken[20]) {
-      selected.push('hitman');
+    if (buildToken[20] === '1') {
+      selected.push(actionSkillMap[20]);
     }
 
-    if (buildToken[37]) {
-      selected.push('doubleAgent');
+    if (buildToken[37] === '1') {
+      selected.push(actionSkillMap[37]);
+    }
+
+    selected = selected.slice(-2);
+
+    if (type === 'action-skill') {
+      selected.push(actionSkillMap[skill.index]);
+
+      return {
+        skillSelections: this.getSpecialLocations('action-skill'),
+        skillSelected: selected.splice(-2),
+        errorMsg: '',
+      };
+    } else if (type === 'augment') {
+      // get tree action-skill of selected skill
+      const actionTreeSelected = treeSkillMap[skill.index];
+
+      // check if it's in our seelection
+      const isSelected = selected.some((skillEquipped: Skill) => {
+        return skillEquipped.name === skill.name;
+      });
+
+      if (isSelected) {
+        // get selected so far in build
+        let augmentedSelected = this.getSpecialLocations('augment');
+        // push
+        augmentedSelected.push(skill);
+
+        return {
+          skillSelections: this.getSpecialLocations('augment'),
+          skillSelected: augmentedSelected.slice(-2),
+          errorMsg: '',
+        };
+      } else {
+        return {
+          skillSelections: [],
+          skillSelected: selected,
+          errorMsg: 'You must select an augment that correlates with your selected action-skill',
+        };
+      }
+
+
     }
 
 
-    return selected;
+    return {
+      skillSelections: [],
+      skillSelected: selected,
+      errorMsg: '',
+    };
   }
 
   getSpecialLocations(type: string) {

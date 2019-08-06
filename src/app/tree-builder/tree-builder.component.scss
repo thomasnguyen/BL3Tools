@@ -57,8 +57,12 @@ $darkBG: #1D202C;
   background: $darkBG;
   text-align: center;
 
-  &.amara {
+  &.Amara {
     border-top: 1px solid #634385;
+  }
+
+  &.Zane {
+    border-top: 1px solid #F8C063;
   }
 
   .char-avy {
@@ -67,9 +71,14 @@ $darkBG: #1D202C;
     height: 35px;
     border-radius: 50%;
 
-    &.amara {
+    &.Amara {
       border: 2px solid #7D4EA4;
     }
+
+    &.Zane {
+      border: 2px solid #F8C063;
+    }
+
   }
 
 
@@ -125,8 +134,12 @@ $darkBG: #1D202C;
       background: #13141C;
       margin: auto;
 
-      .progress-bar.amara {
+      .progress-bar.Amara {
         background: #7D4EA4;
+      }
+
+      .progress-bar.Zane {
+        background: #F8C063;
       }
     }
 

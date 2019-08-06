@@ -41,7 +41,7 @@ export class BuildService {
       // only two augments per action skill
 
       // get all current action-skills
-      const selectedActionSkillTrees: string[] = this.zaneSkillsSvc.getSelectedActionSkillTrees(buildToken);
+      // const selectedActionSkillTrees: string[] = this.zaneSkillsSvc.getSelectedActionSkillTrees(buildToken);
 
 
 
