@@ -16,7 +16,8 @@
 
 ---
 
-<p align="center"> Few lines describing your project.
+<p align="center"> 
+  A web application built in Angular and FireBase where users can build & share their Borderlands 3 character builds.
     <br> 
 </p>
 
@@ -85,15 +86,13 @@ Add notes about how to use the system.
 Add additional notes about how to deploy this on a live system.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Angular](https://angular.io/) - Frontend Framework
+- [Firebase](https://firebase.google.com/) - Database & Backend
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [@thomasnguyen](https://github.com/thomasnguyen) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/thomasnguyen/BLTrees/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 - Hat tip to anyone whose code was used
