@@ -34,7 +34,7 @@
 Write about 1-2 paragraphs describing the purpose of your project.
 
 
-### Installation & Running
+## 🏁Installation & Running
 Make sure you have the Angular CLI installed globally. We use NPM  to manage the dependencies, so we strongly recommend you to use it. 
 
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
